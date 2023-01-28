@@ -5,9 +5,36 @@
   align-items: center;
   justify-content: center;
   color: white;
+  font-family: San Francisco;
+
   background-image: linear-gradient(79deg, #7b93d4, #514f95 48%, #3a8ab9);
 }
- 
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+.topbar{
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  font-family: San Francisco;
+  font-weight: bold;
+  /* background-image: linear-gradient(#7b93d4, #514f95 48%, #3a8ab9); */
+  color: white;
+}
+.links{
+  /* position: absolute; */
+  list-style-type: none;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  padding: 8px;
+  color: white;
+  background-image: linear-gradient(79deg, #7b93d4, #514f95 48%, #3a8ab9);
+
+} 
 .auth-form-container, .login-form, .register-form {
   display: flex;
   flex-direction: column;

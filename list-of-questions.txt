@@ -1,0 +1,34 @@
+What is your preferred location for college? (e.g. state, region, city)
+What subject do you want to study?
+What size of college do you prefer? (e.g. small, medium, large)
+What type of college do you prefer? (e.g. public, private, for-profit)
+How much can you afford to pay for tuition and other expenses?
+How selective do you want the college to be? (e.g. highly selective, selective, less selective)
+Are you interested in participating in Greek life?
+Do you prefer a college with a strong athletics program?
+Do you prefer a college with a diverse student body?
+Do you prefer a college with a specific religious or philosophical affiliation?
+Do you have a preference for living on campus?
+Do you need a college with specific resources or accommodations for students with disabilities?
+Are you interested in studying abroad?
+Do you prefer a college with a strong career services program?
+// Do you have any other specific preferences or needs for your college experience?
+
+
+Do you want to attend a college with a strong liberal arts program?
+Do you prefer a college with a strong research program?
+Do you have a preference for a college with a rural, suburban, or urban campus?
+Do you want to attend a college with a strong international student program?
+Do you prefer a college with a strong Honors program?
+Do you have a preference for a college with a strong program in a particular sports division (e.g. Division I, Division II, Division III)?
+Do you want to attend a college with a strong study abroad program?
+Do you prefer a college with a strong program in a particular area of study (e.g. engineering, business, nursing)?
+Do you want to attend a college with a strong program in a particular field (e.g. science, technology, engineering, math)?
+Do you have a preference for a college with a specific type of academic calendar (e.g. semester, quarter)?
+Do you want to attend a college with a strong program in a particular area of study (e.g. humanities, social sciences, natural sciences)?
+Do you prefer a college with a strong program in a particular area of study (e.g. arts, humanities, social sciences)?
+Do you have a preference for a college with a strong program in a particular area of study (e.g. engineering, business, education)?
+Do you have a preference for a college with a strong program in a particular area of study (e.g. law, medicine, dentistry)?
+Do you have any other specific preferences or needs for your college experience?
+
+
