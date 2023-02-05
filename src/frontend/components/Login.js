@@ -2,25 +2,22 @@
 import React, { useState } from "react";
 import { useNavigate }  from 'react-router-dom';
 import { auth } from "../../backend/firebase.js"
+// import { useHistory } from 'react-router-dom';
+
 import { 
     signInWithEmailAndPassword,
     onAuthStateChanged,
     signOut
 } from 'firebase/auth';
+import { Register } from "./Register.js";
 
 
 export const Login = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [user, setUser] = useState({});
-
-    // const navigate = useNavigate();
-    // function handleSubmit(e) {
-    //     e.preventDefault();
-    //     console.log(email);
-    //     // navigate("/quiz")
-        
-    // }
+    const navigate = useNavigate();
+    const handleRegClick = () => navigate('/register', {replace: true});
 
     const login = async (e) => {
         e.preventDefault();
@@ -42,6 +39,11 @@ export const Login = (props) => {
         await signOut(auth);
     }
 
+    // function handleClick() {
+    //     let history = useHistory();
+    //     history.push('/register');
+    // }
+
 
     return (
         <div className="App">
@@ -55,7 +57,7 @@ export const Login = (props) => {
                     <input onChange = {(e) => {setPassword(e.target.value)}}className="input" value={password} type="password" placeholder="************" id="password" name="password"></input>
                     <button type="submit">Login</button>
                 </form>
-                <button className="link-btn" onClick={() => props.onFormSwitch('register')}>No account? Register here!</button>
+                <button className="link-btn" onClick={handleRegClick}>No account? Register here!</button>
             </div>
         </div>
 

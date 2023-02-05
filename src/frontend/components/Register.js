@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { database } from '../../backend/firebase';
 import { collection, addDoc } from "firebase/firestore";
 import { auth } from "../../backend/firebase.js"
+import { useNavigate } from "react-router-dom";
+import { UserAuth } from "../../context/AuthContext";
 import { 
     createUserWithEmailAndPassword,
     onAuthStateChanged,
     signOut
 } from 'firebase/auth';
+
 // import { useNavigate } from 'react-router-dom';
 
 export const Register = (props) => {
@@ -14,46 +17,34 @@ export const Register = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
+    const [error, setError] = useState('');
     const [confirm, setConfirm] = useState('');
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     // console.log(email);
-    //     // console.log(name);xx
-    //     // console.log(pass);
-    //     // console.log(confirm);
-    //     let obj = {
-    //         name: name,
-    //         email: email,
-    //         password: password,
-    //         confirmPassword: confirm,
-    //     };
-    //     // const newPostKey = push(child(ref(database), 'posts')).key;
-    //     // const updates = {};
-    //     // updates['/' + newPostKey] = obj;
-    //     // console.log(obj)
-    //     // return update(ref(database), updates);
+    const navigate = useNavigate();
+    const handleLoginClick = () => navigate('/login', {replace: true});
+    const createUser  = UserAuth();
+    // const register = async () => {
     //     try {
-    //         const docRef = await addDoc(collection(database, "users"), {
-    //             userInfo: obj,
-    //         });
-    //         console.log("Document written with ID: ", docRef.id);
-    //         // nav.push("/user");
-    //     } catch (e) {
-    //         console.error("Error adding document: ", e);
+    //         const user = await createUserWithEmailAndPassword(
+    //             auth,
+    //             email,
+    //             password
+    //         )
+    //         console.log(user)
     //     }
+    //     catch (error) {
+    //         alert(error.message)
+    //     }
+    // }
 
-    // };
-    const register = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError('');
         try {
-            const user = await createUserWithEmailAndPassword(
-                auth,
-                email,
-                password
-            )
-            console.log(user)
+            await createUser(email, password);
         }
-        catch (error) {
-            alert(error.message)
+        catch (e) {
+            setError(e.message);
+            console.log(e.message)
         }
     }
     return (
@@ -61,7 +52,7 @@ export const Register = (props) => {
             <div className="auth-form-container">
                 <h2>Let's tackle cost of attendance together.</h2>
                 <h3>Create New Account</h3>
-                <form className="register-form" onSubmit={register}>
+                <form className="register-form" onSubmit={handleSubmit}>
                     <label className="label">Full Name</label>
                     <input className="input" value={name} onChange={(e) => setName(e.target.value)} name="name" id="name" placeholder="Full Name" />
                     <label className="label" htmlFor="email">Email</label>
@@ -74,7 +65,7 @@ export const Register = (props) => {
                     <input className="input" value={confirm} onChange={(e) => setConfirm(e.target.value)} type="password" placeholder="************" id="confirmpassword" name="confirmpassword"></input>
                     <button type="submit">Login</button>
                 </form>
-                <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Have account? Login here!</button>
+                <button className="link-btn" onClick={handleLoginClick}>Have account? Login here!</button>
             </div>
         </div>
 

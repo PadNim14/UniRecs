@@ -1,9 +1,7 @@
 export default function Home() {
     return (
-        <div>
-            <center>
-                <h1 className='topbar'>UniRecs</h1>
-            </center>
+        <div className="App">
+            <h1>UniRecs</h1>
 
         </div>
 
