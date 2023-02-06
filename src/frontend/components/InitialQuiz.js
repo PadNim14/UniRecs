@@ -12,26 +12,43 @@ export const InitialQuiz = (props) => {
             ],
         },
         {
-            questionText: 'Do you know what you want to study?',
+            questionText: 'What size of college do you prefer? (e.g. small, medium, large)',
+            answerOptions: [
+                { answerText: 'Small' },
+                { answerText: 'Medium' },
+                { answerText: 'Large'}
+            ],
+        },
+        {
+            questionText: 'How selective do you want the college to be? (e.g. highly selective, selective, less selective)',
+            answerOptions: [
+                { answerText: 'Highly Selective' },
+                { answerText: 'Selective' },
+                { answerText: 'Less Selective' },
+            ],
+        },
+        {
+            questionText: 'Are you interested in participating in Greek life?',
             answerOptions: [
                 { answerText: 'Yes' },
                 { answerText: 'No' },
             ],
         },
         {
-            questionText: 'Do you know what you want to study?',
+            questionText: 'Do you prefer a college with a strong athletics program?',
             answerOptions: [
                 { answerText: 'Yes' },
                 { answerText: 'No' },
             ],
         },
         {
-            questionText: 'Do you know what you want to study?',
+            questionText: 'Do you prefer a college with a strong athletics program?',
             answerOptions: [
                 { answerText: 'Yes' },
                 { answerText: 'No' },
             ],
         },
+        
     ];
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -54,7 +71,7 @@ export const InitialQuiz = (props) => {
         <div>
             {showScore ? (
                 <div>
-                    You scored {score} out of {questions.length}
+                    Made it to the end of questionnaire
                 </div>
             ) : (
                 <>
