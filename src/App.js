@@ -11,6 +11,8 @@ import About from './frontend/components/About';
 import { BrowserRouter as Router, Route, Routes, Link, BrowserRouter } from 'react-router-dom';
 import { registerVersion } from 'firebase/app';
 import { AuthContextProvider } from './context/AuthContext';
+import ProtectedRoute from './frontend/components/ProtectedRoute';
+import Profile from './frontend/components/Profile';
 
 function App() {
   const [currentForm, setCurrentForm] = useState('/login');
@@ -29,6 +31,13 @@ function App() {
             <Route path='/register' element={<Register />} />
             <Route path='/sample_database' element={<Data />} />
             <Route path='/about' element={<About />} />
+            <Route path='/profile'
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
 
         </Router>

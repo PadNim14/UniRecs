@@ -1,37 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import { useAuth } from './auth';
-import { useRouter } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { UserAuth } from '../../context/AuthContext';
+// import { useRouter } from 'react-router-dom';
 
-function ProfilePage() {
-  const { user } = useAuth();
-  const [profile, setProfile] = useState(null);
-  const router = useRouter();
+function Profile() {
+  const { user, logout } = UserAuth();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!user) {
-      router.push('/login');
-      return;
+  const handleLogout = async() => {
+    try{
+      await logout();
+      navigate('/');
+      console.log("Logged out successfully!");
     }
-
-    async function fetchProfile() {
-      const res = await fetch(`/api/profile/${user.id}`);
-      const data = await res.json();
-      setProfile(data);
+    catch (e) {
+      console.log(e.message);
     }
-
-    fetchProfile();
-  }, [user, router]);
-
-  if (!profile) {
-    return <h1>Loading...</h1>;
-  }
+  };
 
   return (
     <div>
-      <h1>Profile</h1>
-      <p>Name: {profile.name}</p>
-      <p>Email: {profile.email}</p>
+      <h1>Welcome.</h1>
+      <p>
+        Email: {user && user.email}
+      </p>
+
+      <button onClick={handleLogout}>Logout</button>
     </div>
-  );
+  )
+
+
 }
-export default ProfilePage
+export default Profile

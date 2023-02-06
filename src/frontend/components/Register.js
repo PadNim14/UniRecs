@@ -21,26 +21,14 @@ export const Register = (props) => {
     const [confirm, setConfirm] = useState('');
     const navigate = useNavigate();
     const handleLoginClick = () => navigate('/login', {replace: true});
-    const createUser  = UserAuth();
-    // const register = async () => {
-    //     try {
-    //         const user = await createUserWithEmailAndPassword(
-    //             auth,
-    //             email,
-    //             password
-    //         )
-    //         console.log(user)
-    //     }
-    //     catch (error) {
-    //         alert(error.message)
-    //     }
-    // }
+    const { createUser }  = UserAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
         try {
             await createUser(email, password);
+            navigate('/profile')
         }
         catch (e) {
             setError(e.message);
