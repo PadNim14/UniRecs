@@ -18,6 +18,16 @@ function Profile() {
     }
   };
 
+  const handleQuiz = async(e) => {
+    try{
+      console.log(e)
+      navigate('/quiz')
+    }
+    catch(e) {
+      console.log(e.message)
+    }
+  }
+
   return (
     <div>
       <h1>Welcome.</h1>
@@ -26,6 +36,9 @@ function Profile() {
       </p>
 
       <button onClick={handleLogout}>Logout</button>
+      <br />
+      <br />
+      <button onClick={handleQuiz}>Take quiz</button>
     </div>
   )
 

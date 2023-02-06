@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../quiz.css'
+// import '../styles/quiz.css'
 export const InitialQuiz = (props) => {
     const questions = [
         {
@@ -51,20 +51,20 @@ export const InitialQuiz = (props) => {
         }
     };
     return (
-        <div className='quiz'>
+        <div>
             {showScore ? (
-                <div className='score-section'>
+                <div>
                     You scored {score} out of {questions.length}
                 </div>
             ) : (
                 <>
-                    <div className='question-section'>
-                        <div className='question-count'>
+                    <div>
+                        <div>
                             <span>Question {currentQuestion + 1}</span>/{questions.length}
                         </div>
-                        <div className='question-text'>{questions[currentQuestion].questionText}</div>
+                        <div>{questions[currentQuestion].questionText}</div>
                     </div>
-                    <div className='answer-section'>
+                    <div>
                         {questions[currentQuestion].answerOptions.map((answerOption) => (
                             <button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
                         ))}

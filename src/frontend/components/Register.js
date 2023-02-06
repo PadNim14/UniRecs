@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { database } from '../../backend/firebase';
-import { collection, addDoc } from "firebase/firestore";
-import { auth } from "../../backend/firebase.js"
+// import { database } from '../../backend/firebase';
+// import { collection, addDoc } from "firebase/firestore";
+// import { auth } from "../../backend/firebase.js"
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
-import { 
-    createUserWithEmailAndPassword,
-    onAuthStateChanged,
-    signOut
-} from 'firebase/auth';
+// import { 
+//     createUserWithEmailAndPassword,
+//     onAuthStateChanged,
+//     signOut
+// } from 'firebase/auth';
 
-// import { useNavigate } from 'react-router-dom';
+
 
 export const Register = (props) => {
     // const nav = useNavigate();

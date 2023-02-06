@@ -7,18 +7,15 @@ import Home from './frontend/components/Home';
 import Data from './frontend/components/SampleData';
 import Navbar from './frontend/helper/Navbar';
 import About from './frontend/components/About';
-// import {InitialQuiz}  from './components/InitialQuiz';
+import { InitialQuiz } from './frontend/components/InitialQuiz';
 import { BrowserRouter as Router, Route, Routes, Link, BrowserRouter } from 'react-router-dom';
-import { registerVersion } from 'firebase/app';
+
 import { AuthContextProvider } from './context/AuthContext';
 import ProtectedRoute from './frontend/components/ProtectedRoute';
 import Profile from './frontend/components/Profile';
 
 function App() {
-  const [currentForm, setCurrentForm] = useState('/login');
-  const toggleForm = (formName) => {
-    setCurrentForm(formName);
-  }
+  
   return (
     <div>
       <AuthContextProvider>
@@ -35,6 +32,13 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route path='/quiz'
+              element={
+                <ProtectedRoute>
+                  <InitialQuiz />
                 </ProtectedRoute>
               }
             />
