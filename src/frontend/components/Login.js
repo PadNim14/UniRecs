@@ -1,24 +1,25 @@
 // import e from "express";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+    // useEffect } 
 import { useNavigate } from 'react-router-dom';
 import { auth } from "../../backend/firebase.js";
 import { UserAuth } from "../../context/AuthContext.js";
 // import { useHistory } from 'react-router-dom';
 
 import {
-    signInWithEmailAndPassword,
-    onAuthStateChanged,
+    // signInWithEmailAndPassword,
+    // onAuthStateChanged,
     signOut,
-    setPersistence
+    // setPersistence
 } from 'firebase/auth';
-import { Register } from "./Register.js";
+// import { Register } from "./Register.js";
 
 
 export const Login = (props) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
+    // const [name, setName] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
