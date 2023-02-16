@@ -1,5 +1,5 @@
 // import e from "express";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { auth } from "../../backend/firebase.js";
 import { UserAuth } from "../../context/AuthContext.js";
@@ -8,7 +8,8 @@ import { UserAuth } from "../../context/AuthContext.js";
 import {
     signInWithEmailAndPassword,
     onAuthStateChanged,
-    signOut
+    signOut,
+    setPersistence
 } from 'firebase/auth';
 import { Register } from "./Register.js";
 
@@ -26,10 +27,12 @@ export const Login = (props) => {
     const [user, setUser] = useState({});
     const handleRegClick = () => navigate('/register', { replace: true });
 
+    
     const login = async (e) => {
         e.preventDefault();
         setError('')
         try {
+            // await setPersistence()
             await signIn(email, password);
             // navigate("/profile")
             console.log(user);

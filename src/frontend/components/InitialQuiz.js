@@ -16,7 +16,7 @@ export const InitialQuiz = (props) => {
             answerOptions: [
                 { answerText: 'Small' },
                 { answerText: 'Medium' },
-                { answerText: 'Large'}
+                { answerText: 'Large' }
             ],
         },
         {
@@ -48,7 +48,7 @@ export const InitialQuiz = (props) => {
                 { answerText: 'No' },
             ],
         },
-        
+
     ];
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -69,25 +69,27 @@ export const InitialQuiz = (props) => {
     };
     return (
         <div>
-            {showScore ? (
-                <div>
-                    Made it to the end of questionnaire
-                </div>
-            ) : (
-                <>
+            <h2>
+                {showScore ? (
                     <div>
+                        Made it to the end of questionnaire
+                    </div>
+                ) : (
+                    <>
                         <div>
-                            <span>Question {currentQuestion + 1}</span>/{questions.length}
+                            <div>
+                                <span>Question {currentQuestion + 1}</span>/{questions.length}
+                            </div>
+                            <div>{questions[currentQuestion].questionText}</div>
                         </div>
-                        <div>{questions[currentQuestion].questionText}</div>
-                    </div>
-                    <div>
-                        {questions[currentQuestion].answerOptions.map((answerOption) => (
-                            <button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
-                        ))}
-                    </div>
-                </>
-            )}
+                        <div>
+                            {questions[currentQuestion].answerOptions.map((answerOption) => (
+                                <button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+                            ))}
+                        </div>
+                    </>
+                )}
+            </h2>
         </div>
     );
 }
