@@ -12,7 +12,7 @@ Do you have a preference for living on campus?
 Do you need a college with specific resources or accommodations for students with disabilities?
 Are you interested in studying abroad?
 Do you prefer a college with a strong career services program?
-// Do you have any other specific preferences or needs for your college experience?
+Do you have any other specific preferences or needs for your college experience?
 
 
 Do you want to attend a college with a strong liberal arts program?

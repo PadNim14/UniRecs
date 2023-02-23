@@ -1,5 +1,4 @@
 import './frontend/styles/App.css';
-// import { Landing } from './pages/Landing'
 import React from 'react';
 import { Login } from './frontend/components/Login';
 import { Register } from './frontend/components/Register';
@@ -21,7 +20,6 @@ function App() {
       <AuthContextProvider>
         <Router>
           <Navbar />
-
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
@@ -38,7 +36,9 @@ function App() {
             <Route path='/quiz'
               element={
                 <ProtectedRoute>
-                  <InitialQuiz />
+                  <center>
+                    <InitialQuiz />
+                  </center>
                 </ProtectedRoute>
               }
             />

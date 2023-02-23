@@ -1,5 +1,5 @@
 // Read the file using pathname
-const xlsx = require('xlsx')
+const xlsx = require('xlsx');
 var fs = require('fs');
 const file = xlsx.readFile('./usnews-mod.xlsx');
 

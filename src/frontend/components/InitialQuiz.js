@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
-// import '../styles/quiz.css'
-export const InitialQuiz = (props) => {
+import React, { useState, useEffect } from 'react';
+import { database } from '../../backend/firebase';
+import { collection, addDoc } from "firebase/firestore";
+import QuizResults from './InitialQuizResults';
+import { getAuth } from 'firebase/auth';
+
+export const InitialQuiz = () => {
     const questions = [
         {
             questionText: 'Do you know what you want to study?',
@@ -42,37 +46,104 @@ export const InitialQuiz = (props) => {
             ],
         },
         {
-            questionText: 'Do you prefer a college with a strong athletics program?',
+            questionText: 'Do you plan on studying in STEM?',
             answerOptions: [
                 { answerText: 'Yes' },
                 { answerText: 'No' },
             ],
         },
+        {
+            questionText: 'Do you want to attend a college with a strong study abroad program',
+            answerOptions: [
+                { answerText: 'Yes' },
+                { answerText: 'No' },
+            ],
+        },
+        {
+            questionText: 'Do you have a preference for a college with a specific type of academic calendar (e.g. semester, quarter)?',
+            answerOptions: [
+                { answerText: 'Yes' },
+                { answerText: 'No' }
+            ]
+
+        },
+        {
+            questionText: 'Do you want to attend a college with a strong program in a particular area of study (e.g. humanities, social sciences, natural sciences)?',
+            answerOptions: [
+                { answerText: 'Yes' },
+                { answerText: 'No' }
+            ]
+
+        },
+        {
+            questionText: 'Do you prefer a college with a strong career services program?',
+            answerOptions: [
+                { answerText: 'Yes' },
+                { answerText: 'No' }
+            ]
+
+        },
+        {
+            questionText: 'Do you need a college with specific resources or accommodations for students with disabilities?',
+            answerOptions: [
+                { answerText: 'Yes' },
+                { answerText: 'No' }
+            ]
+        },
+        {
+            questionText: 'Do you prefer a college with a strong research program?',
+            answerOptions: [
+                { answerText: 'Yes' },
+                { answerText: 'No' }
+            ]
+        }
+
 
     ];
-
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [showScore, setShowScore] = useState(false);
-    const [score, setScore] = useState(0);
+    const [userResponses, setUserResponses] = useState([]);
+    const currentUser = getAuth().currentUser;
+    const userId = currentUser.uid;
+    // console.log(currentUser);
+    useEffect(() => {
+        if (userResponses.length === questions.length) {
+            addDoc(collection(database, "quizResponses"), {
+                
+                responses: userResponses
+            })
+                .then(() => {
+                    console.log("Responses added to the database!");
+                })
 
-    const handleAnswerOptionClick = (isCorrect) => {
-        if (isCorrect) {
-            setScore(score + 1);
+                .catch((error) => {
+                    console.error("Error adding responses to the database: ", error);
+                });
         }
+    })
+
+    const handleAnswerOptionClick = (answerText) => {
+        const response = {
+            question: questions[currentQuestion].questionText,
+            answer: answerText,
+            userId: getAuth().currentUser.uid
+        };
+
+        setUserResponses([...userResponses, response]);
 
         const nextQuestion = currentQuestion + 1;
         if (nextQuestion < questions.length) {
             setCurrentQuestion(nextQuestion);
-        } else {
-            setShowScore(true);
         }
     };
+
     return (
         <div>
             <h2>
-                {showScore ? (
+                {userResponses.length === questions.length ? (
                     <div>
-                        Made it to the end of questionnaire
+                        {/* Made it to the end of questionnaire */}
+                        <QuizResults userResponses={userResponses} userId={userId} />
+                       
                     </div>
                 ) : (
                     <>
@@ -84,7 +155,7 @@ export const InitialQuiz = (props) => {
                         </div>
                         <div>
                             {questions[currentQuestion].answerOptions.map((answerOption) => (
-                                <button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+                                <button key={answerOption.answerText} onClick={() => handleAnswerOptionClick(answerOption.answerText)}>{answerOption.answerText}</button>
                             ))}
                         </div>
                     </>
@@ -92,4 +163,4 @@ export const InitialQuiz = (props) => {
             </h2>
         </div>
     );
-}
+};

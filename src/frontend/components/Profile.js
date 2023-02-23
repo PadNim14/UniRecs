@@ -7,8 +7,8 @@ function Profile() {
   const { user, logout } = UserAuth();
   const navigate = useNavigate();
 
-  const handleLogout = async() => {
-    try{
+  const handleLogout = async () => {
+    try {
       await logout();
       navigate('/');
       console.log("Logged out successfully!");
@@ -18,27 +18,32 @@ function Profile() {
     }
   };
 
-  const handleQuiz = async(e) => {
-    try{
+  const handleQuiz = async (e) => {
+    try {
       console.log(e)
       navigate('/quiz')
     }
-    catch(e) {
+    catch (e) {
       console.log(e.message)
     }
   }
 
   return (
     <div>
-      <h1>Welcome.</h1>
-      <p>
-        Email: {user && user.email}
-      </p>
+      <center>
+        <h3>Welcome, student.</h3>
+        <p>
+          Email: {user && user.email}
+        </p>
+        <p>
 
-      <button onClick={handleLogout}>Logout</button>
-      <br />
-      <br />
-      <button onClick={handleQuiz}>Take quiz</button>
+        </p>
+
+        <button onClick={handleLogout}>Logout</button>
+        <br />
+        <br />
+        <button onClick={handleQuiz}>Take quiz</button>
+      </center>
     </div>
   )
 
