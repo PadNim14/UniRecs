@@ -15,17 +15,16 @@ const QuizResults = ({ userResponses, userId }) => {
         fetchUserResponses();
     }, [userId]);
 
-    console.log(userId)
+    // console.log(userId)
     return (
         <div>
             {userResponses.length > 0 ? (
                 <div>
-                    <h3>Your Quiz Results</h3>
+                    <h4>Your Quiz Results</h4>
                     {userResponses.map((response, index) => (
                         <div key={index}>
-                            <h4>Question {index + 1}</h4>
                             <h5>{response.question}</h5>
-                            <h5>Your answer: {response.answer}</h5>
+                            <h6>Your answer: {response.answer}</h6>
                         </div>
                     ))}
                 </div>

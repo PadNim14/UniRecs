@@ -14,6 +14,8 @@
     "express": "^4.18.2",
     "firebase": "^9.15.0",
     "fs": "^0.0.1-security",
+    "mind": "^0.0.2",
+    "node-mind": "^1.0.1",
     "nodemon": "^2.0.20",
     "pdf-parse": "^1.1.1",
     "pdf-to-excel": "^0.3.2",
@@ -25,6 +27,7 @@
     "read-excel-file": "^5.6.1",
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
+    "tensorflow-models": "^0.0.1",
     "uuid": "^9.0.0",
     "web-vitals": "^2.1.4",
     "xlsx": "^0.18.5"

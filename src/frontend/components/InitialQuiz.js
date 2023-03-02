@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { database } from '../../backend/firebase';
 import { collection, addDoc } from "firebase/firestore";
 import QuizResults from './InitialQuizResults';
 import { getAuth } from 'firebase/auth';
 
 export const InitialQuiz = () => {
+
     const questions = [
         {
             questionText: 'Do you know what you want to study?',
@@ -104,11 +106,27 @@ export const InitialQuiz = () => {
     const [userResponses, setUserResponses] = useState([]);
     const currentUser = getAuth().currentUser;
     const userId = currentUser.uid;
-    // console.log(currentUser);
+
+
+
+
+
+    // useEffect(() => {
+    //     const fetchResponses = async () => {
+    //         const querySnapshot = await getDocs(collection(database, "quizResponses"));
+    //         const responsesData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    //         setResponses(responsesData);
+    //     }
+
+    //     fetchResponses().then((data) => setResponses(data));
+    // }, []);
+
     useEffect(() => {
+
         if (userResponses.length === questions.length) {
+            // console.log(addDoc(collection(database, "quizResponses")))
             addDoc(collection(database, "quizResponses"), {
-                
+
                 responses: userResponses
             })
                 .then(() => {
@@ -117,6 +135,16 @@ export const InitialQuiz = () => {
 
                 .catch((error) => {
                     console.error("Error adding responses to the database: ", error);
+                });
+            addDoc(collection(database, "users"), {
+                responseID: userResponses,
+                userId: userId
+            })
+                .then(() => {
+                    console.log("List of responses added with userId!");
+                })
+                .catch((error) => {
+                    console.error("Error adding the list of responses to the database: ", error);
                 });
         }
     })
@@ -135,6 +163,16 @@ export const InitialQuiz = () => {
             setCurrentQuestion(nextQuestion);
         }
     };
+    const navigate = useNavigate();
+    const goToProfilePage = async (e) => {
+        try {
+            console.log(e);
+            navigate('/profile');
+        }
+        catch {
+            console.log(e.message);
+        }
+    }
 
     return (
         <div>
@@ -143,7 +181,14 @@ export const InitialQuiz = () => {
                     <div>
                         {/* Made it to the end of questionnaire */}
                         <QuizResults userResponses={userResponses} userId={userId} />
-                       
+                        <br />
+                        <button onClick={goToProfilePage}>Go back to profile</button>
+
+                        {/* <div>
+                            {responses.map((response) => (
+                                <div key={response.id}> {response.text} </div>
+                            ))}
+                        </div> */}
                     </div>
                 ) : (
                     <>
