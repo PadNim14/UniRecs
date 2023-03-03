@@ -27,7 +27,8 @@ function Navbar() {
                 <Link to="/">Home</Link>
                 <Link to="/login">Login</Link>
                 <Link to="/register">Register</Link>
-                <Link to="/sample_database">Data</Link>
+                <Link to="/sample_database">National University Rankings</Link>
+                <Link to="/liberal_arts">Liberal Arts College Rankings</Link>
                 <Link to="/about">About Us</Link>
                 {/* <Link to="/experience">Experience</Link> */}
             </div>

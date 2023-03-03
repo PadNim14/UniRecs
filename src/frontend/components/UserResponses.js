@@ -18,7 +18,18 @@ const UserResponses = () => {
         };
         fetchUserResponses();
     }, [user]);
-    console.log(userResponses[0])
+    
+    const navigate = useNavigate();
+    const goToProfilePage = async (e) => {
+        try {
+            console.log(e);
+            navigate('/profile');
+        }
+        catch {
+            console.log(e.message);
+        }
+    }
+
     return (
         <div>
             {userResponses.length > 0 ? (
@@ -28,10 +39,13 @@ const UserResponses = () => {
                     {userResponses.map((response, index) => (
                         <div key={index}>
                             <div>
-                                <h3>Response {index + 1}</h3>
+                                <h4>Response {index + 1}</h4>
                                 {response.responseID.map((res2, idx) => (
                                     <div key={idx}>
-                                        <h5>{res2.question} {res2.answer}</h5>
+                                        <center>
+                                            <h5>{idx + 1}. {res2.question}</h5>
+                                            <h6>{res2.answer}</h6>
+                                        </center>
                                         {/* <h5>{res2.answer}</h5> */}
                                     </div>
                                 ))}
@@ -45,6 +59,8 @@ const UserResponses = () => {
                     <h2>You have not taken any quizzes yet!</h2>
                 </div>
             )}
+            <br />
+            <button onClick={goToProfilePage}>Go back to profile</button>
         </div>
     )
 };

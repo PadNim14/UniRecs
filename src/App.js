@@ -3,8 +3,9 @@ import React from 'react';
 import { Login } from './frontend/components/Login';
 import { Register } from './frontend/components/Register';
 import Home from './frontend/components/Home';
-import Data from './frontend/components/SampleData';
 import Navbar from './frontend/helper/Navbar';
+import SampleData from './frontend/components/SampleData';
+import LiberalArts from './frontend/components/LiberalArts';
 import About from './frontend/components/About';
 import { InitialQuiz } from './frontend/components/InitialQuiz';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -25,7 +26,8 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
-            <Route path='/sample_database' element={<Data />} />
+            <Route path='/sample_database' element={<SampleData />} />
+            <Route path='/liberal_arts' element={<LiberalArts />} />
             <Route path='/about' element={<About />} />
             <Route path='/profile'
               element={
