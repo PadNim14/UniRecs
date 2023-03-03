@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AuthContextProvider } from './context/AuthContext';
 import ProtectedRoute from './frontend/components/ProtectedRoute';
 import Profile from './frontend/components/Profile';
+import UserResponses from './frontend/components/UserResponses';
 
 function App() {
 
@@ -38,6 +39,15 @@ function App() {
                 <ProtectedRoute>
                   <center>
                     <InitialQuiz />
+                  </center>
+                </ProtectedRoute>
+              }
+            />
+            <Route path='/user_results'
+              element={
+                <ProtectedRoute>
+                  <center>
+                    <UserResponses />
                   </center>
                 </ProtectedRoute>
               }
