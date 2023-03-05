@@ -8,6 +8,13 @@ import SampleData from './frontend/components/SampleData';
 import LiberalArts from './frontend/components/LiberalArts';
 import About from './frontend/components/About';
 import { InitialQuiz } from './frontend/components/InitialQuiz';
+import { AcademicTraitsQuiz } from './frontend/components/AcademicTraitsQuiz';
+import { SubjectPreferences } from './frontend/components/SubjectPreferences';
+import { EnvironInfo } from './frontend/components/EnvironInfo';
+import { Opportunities } from './frontend/components/Opportunities';
+import { PersonalInfo } from './frontend/components/PersonalInfo';
+import { TranscriptInfo } from './frontend/components/TranscriptInfo';
+import Results from './frontend/components/Results';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { AuthContextProvider } from './context/AuthContext';
@@ -54,6 +61,66 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route path='/academic_traits'
+              element={
+                <ProtectedRoute>
+                  <center>
+                    <AcademicTraitsQuiz />
+                  </center>
+                </ProtectedRoute>
+              }
+            />
+            <Route path='/subject_preferences'
+              element={
+                <ProtectedRoute>
+                  <center>
+                    <SubjectPreferences />
+                  </center>
+                </ProtectedRoute>
+              }
+            />
+            <Route path='/environmental_information'
+              element={<ProtectedRoute>
+                <center>
+                  <EnvironInfo />
+                </center>
+              </ProtectedRoute>
+              }
+            />
+            <Route path='/opp_info'
+              element={<ProtectedRoute>
+                <center>
+                  <Opportunities />
+                </center>
+              </ProtectedRoute>
+              }
+            />
+            <Route path='/personal_info'
+              element={<ProtectedRoute>
+                <center>
+                  <PersonalInfo />
+                </center>
+              </ProtectedRoute>
+              }
+            />
+
+            <Route path='/transcript_info'
+              element={<ProtectedRoute>
+                <center>
+                  <TranscriptInfo />
+                </center>
+              </ProtectedRoute>
+              }
+            />
+            <Route path='/results'
+              element={<ProtectedRoute>
+                <center>
+                  <Results />
+                </center>
+              </ProtectedRoute>
+              }
+            />
+
           </Routes>
 
         </Router>

@@ -5,45 +5,54 @@ import { collection, addDoc } from "firebase/firestore";
 import QuizResults from './InitialQuizResults';
 import { getAuth } from 'firebase/auth';
 
-export const InitialQuiz = () => {
+export const Opportunities = () => {
 
     const questions = [
         {
-            questionText: 'Do you know what you want to study?',
+            questionText: 'Do you intend to study abroad?',
             answerOptions: [
                 { answerText: 'Yes' },
                 { answerText: 'No' },
-                // Have some redirect that takes care of No answer
-                // Render another quiz
             ],
         },
         {
-            questionText: 'If yes, what areas of study are you interested in?',
+            questionText: 'How important is college-supported strong coop/career services based program?',
             answerOptions: [
-                { answerText: 'not applicable'},
-                { answerText: 'natural sciences' },
-                { answerText: 'mathematics' },
-                { answerText: 'engineering' },
-                { answerText: 'computing' },
-                { answerText: 'business and management' },
-                { answerText: 'fine arts' },
-                { answerText: 'legal studies' },
-                { answerText: 'medical services' },
-                { answerText: 'environmental studies/planning' },
-                { answerText: 'architecture' },
-                { answerText: 'humanities (behavioral/social)' },
-                { answerText: 'humanities (languages/history/philosophy)' },
+                { answerText: 'Very Important' },
+                { answerText: 'Important' },
+                { answerText: 'Not Important' },
+
             ],
         },
 
         {
-            questionText: 'Do you want the college to give a holistic academic experience?',
+            questionText: 'Do you need specific resources or accommodations for students with disabilities?',
             answerOptions: [
                 { answerText: 'Yes' },
-                { answerText: 'No' },
+                { answerText: 'No' }
             ]
-        }
-
+        },
+        {
+            questionText: 'Do you intend to go into research or dabble with research?',
+            answerOptions: [
+                { answerText: 'Yes' },
+                { answerText: 'No' }
+            ]
+        },
+        {
+            questionText: 'Do you intend in partipating in college level competitions?',
+            answerOptions: [
+                { answerText: 'Yes' },
+                { answerText: 'No' }
+            ]
+        },
+        {
+            questionText: 'Are you interested in mentorship?',
+            answerOptions: [
+                { answerText: 'Yes' },
+                { answerText: 'No' }
+            ]
+        },
     ];
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [userResponses, setUserResponses] = useState([]);
@@ -103,12 +112,12 @@ export const InitialQuiz = () => {
         }
     }
 
-    const goToAcademicQuestionnaire = async (e) => {
+    const goToPersonalInfo = async (e) => {
         try {
             console.log(e);
-            navigate('/academic_traits')
+            navigate('/personal_info')
         }
-        catch{
+        catch {
             console.log(e);
         }
     }
@@ -122,13 +131,7 @@ export const InitialQuiz = () => {
                         <QuizResults userResponses={userResponses} userId={userId} />
                         <br />
                         <button onClick={goToProfilePage}>Go back to profile</button>
-                        <button onClick={goToAcademicQuestionnaire}>Continue: Academic Traits</button>
-
-                        {/* <div>
-                            {responses.map((response) => (
-                                <div key={response.id}> {response.text} </div>
-                            ))}
-                        </div> */}
+                        <button onClick={goToPersonalInfo}>Continue: Personal Information</button>
                     </div>
                 ) : (
                     <>

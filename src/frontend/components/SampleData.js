@@ -2,6 +2,7 @@ import React from 'react'
 // import parsedData from '../../backend/convert_xlsx_to_json'
 import parsedData from '../../backend/college_data'
 import 'bootstrap/dist/css/bootstrap.css'
+import '../styles/table.css'
 function SampleData() {
   const data = parsedData.map(
     (info) => {
@@ -16,8 +17,8 @@ function SampleData() {
     }
   )
   return (
-    <div>
-      <table className='table table-hover'>
+    <div className='App'>
+      <table className='table table-hover white-text'>
         <thead>
           <tr>
             <th>University</th>

@@ -49,7 +49,7 @@ function Profile() {
 
 
     return (
-        <div>
+        <div className='App'>
             <center>
                 <h3>Welcome, student.</h3>
                 <p>

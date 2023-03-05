@@ -1,13 +1,26 @@
 .App {
   /* text-align: center; */
-  display: flex !important;
+  display: flex;
   min-height: 100vh !important;
   align-items: center !important;
-  justify-content: center  !important;
+  justify-content: center;
   color: white;
   font-family: San Francisco;
 
-  background-image: linear-gradient(79deg, #7b93d4, #514f95 48%, #3a8ab9);
+  background-image: linear-gradient(78deg, #7b93d4, #807dd5 48%, #4397c7);
+}
+
+
+.subject-ranking {
+  /* text-align: center; */
+  display: auto;
+  min-height: 100vh;
+  /* align-items: center !important; */
+  justify-content: center;
+  color: white;
+  font-family: San Francisco;
+
+  background-image: linear-gradient(78deg, #7b93d4, #807dd5 48%, #4397c7);
 }
 
 @font-face {

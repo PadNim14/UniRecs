@@ -5,45 +5,115 @@ import { collection, addDoc } from "firebase/firestore";
 import QuizResults from './InitialQuizResults';
 import { getAuth } from 'firebase/auth';
 
-export const InitialQuiz = () => {
+export const AcademicTraitsQuiz = () => {
 
     const questions = [
         {
-            questionText: 'Do you know what you want to study?',
+            questionText: 'Would you participate in contests about problem solving?',
             answerOptions: [
                 { answerText: 'Yes' },
-                { answerText: 'No' },
-                // Have some redirect that takes care of No answer
-                // Render another quiz
+                { answerText: 'No' }
             ],
         },
         {
-            questionText: 'If yes, what areas of study are you interested in?',
+            questionText: 'Do you feel strongly about your personal philosophy',
             answerOptions: [
-                { answerText: 'not applicable'},
-                { answerText: 'natural sciences' },
-                { answerText: 'mathematics' },
-                { answerText: 'engineering' },
-                { answerText: 'computing' },
-                { answerText: 'business and management' },
-                { answerText: 'fine arts' },
-                { answerText: 'legal studies' },
-                { answerText: 'medical services' },
-                { answerText: 'environmental studies/planning' },
-                { answerText: 'architecture' },
-                { answerText: 'humanities (behavioral/social)' },
-                { answerText: 'humanities (languages/history/philosophy)' },
+                { answerText: 'Yes'},
+                { answerText: 'No' }
             ],
         },
 
         {
-            questionText: 'Do you want the college to give a holistic academic experience?',
+            questionText: 'Do you enjoy collaborating with others',
             answerOptions: [
                 { answerText: 'Yes' },
-                { answerText: 'No' },
+                { answerText: 'No' }
+            ]
+        },
+        {
+            questionText: 'Do you enjoy learning new material',
+            answerOptions: [
+                { answerText: 'Yes' },
+                { answerText: 'No' }
+            ]
+        },
+        {
+            questionText: 'Do you enjoy being around nature?',
+            answerOptions: [
+                { answerText: 'Yes'},
+                { answerText: 'No'}
+            ]
+        },
+        {
+            questionText: 'You enjoy learning about the differences between cultures and identity.',
+            answerOptions: [
+                { answerText: 'Strongly Agree' },
+                { answerText: 'Agree' },
+                { answerText: 'Neutral' },
+                { answerText: 'Disagree' },
+                { answerText: 'Strongly Disagree' }
+            ]
+        },
+        {
+            questionText: 'You are more of a determinist.',
+            answerOptions: [
+                { answerText: 'Strongly Agree' },
+                { answerText: 'Agree' },
+                { answerText: 'Neutral' },
+                { answerText: 'Disagree' },
+                { answerText: 'Strongly Disagree' }
+            ]
+        },
+        {
+            questionText: 'You find it easy to converse with others.',
+            answerOptions: [
+                { answerText: 'Strongly Agree' },
+                { answerText: 'Agree' },
+                { answerText: 'Neutral' },
+                { answerText: 'Disagree' },
+                { answerText: 'Strongly Disagree' }
+            ]
+        },
+        {
+            questionText: 'You are patient.',
+            answerOptions: [
+                { answerText: 'Strongly Agree' },
+                { answerText: 'Agree' },
+                { answerText: 'Neutral' },
+                { answerText: 'Disagree' },
+                { answerText: 'Strongly Disagree' }
+            ]
+        },
+        {
+            questionText: 'Optimizing your time is more important than staying relaxed.',
+            answerOptions: [
+                { answerText: 'Strongly Agree' },
+                { answerText: 'Agree' },
+                { answerText: 'Neutral' },
+                { answerText: 'Disagree' },
+                { answerText: 'Strongly Disagree' }
+            ]
+        },
+        {
+            questionText: 'You enjoy planning out projects.',
+            answerOptions: [
+                { answerText: 'Strongly Agree' },
+                { answerText: 'Agree' },
+                { answerText: 'Neutral' },
+                { answerText: 'Disagree' },
+                { answerText: 'Strongly Disagree' }
+            ]
+        },
+        {
+            questionText: 'You want to uphold justice in society.',
+            answerOptions: [
+                { answerText: 'Strongly Agree' },
+                { answerText: 'Agree' },
+                { answerText: 'Neutral' },
+                { answerText: 'Disagree' },
+                { answerText: 'Strongly Disagree' }
             ]
         }
-
     ];
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [userResponses, setUserResponses] = useState([]);
@@ -103,10 +173,10 @@ export const InitialQuiz = () => {
         }
     }
 
-    const goToAcademicQuestionnaire = async (e) => {
+    const goToSubjectPreferences = async (e) => {
         try {
             console.log(e);
-            navigate('/academic_traits')
+            navigate('/subject_preferences')
         }
         catch{
             console.log(e);
@@ -122,7 +192,7 @@ export const InitialQuiz = () => {
                         <QuizResults userResponses={userResponses} userId={userId} />
                         <br />
                         <button onClick={goToProfilePage}>Go back to profile</button>
-                        <button onClick={goToAcademicQuestionnaire}>Continue: Academic Traits</button>
+                        <button onClick={goToSubjectPreferences}>Continue: Subject Preferences</button>
 
                         {/* <div>
                             {responses.map((response) => (

@@ -31,10 +31,12 @@ const UserResponses = () => {
     }
 
     return (
-        <div>
+        <div className="App">
+
             {userResponses.length > 0 ? (
                 <div>
                     <h3>Your Responses</h3>
+                    <button onClick={goToProfilePage}>Go back to profile</button>
 
                     {userResponses.map((response, index) => (
                         <div key={index}>
@@ -46,7 +48,6 @@ const UserResponses = () => {
                                             <h5>{idx + 1}. {res2.question}</h5>
                                             <h6>{res2.answer}</h6>
                                         </center>
-                                        {/* <h5>{res2.answer}</h5> */}
                                     </div>
                                 ))}
                             </div>
@@ -60,7 +61,6 @@ const UserResponses = () => {
                 </div>
             )}
             <br />
-            <button onClick={goToProfilePage}>Go back to profile</button>
         </div>
     )
 };

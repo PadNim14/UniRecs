@@ -5,45 +5,61 @@ import { collection, addDoc } from "firebase/firestore";
 import QuizResults from './InitialQuizResults';
 import { getAuth } from 'firebase/auth';
 
-export const InitialQuiz = () => {
+export const EnvironInfo = () => {
 
     const questions = [
         {
-            questionText: 'Do you know what you want to study?',
+            questionText: 'What size of college do you prefer? (e.g. small, medium, large)',
             answerOptions: [
-                { answerText: 'Yes' },
-                { answerText: 'No' },
-                // Have some redirect that takes care of No answer
-                // Render another quiz
+                { answerText: 'Small' },
+                { answerText: 'Medium' },
+                { answerText: 'Large' }
             ],
         },
         {
-            questionText: 'If yes, what areas of study are you interested in?',
+            questionText: 'How selective do you want the college to be? (e.g. highly selective, selective, less selective)',
             answerOptions: [
-                { answerText: 'not applicable'},
-                { answerText: 'natural sciences' },
-                { answerText: 'mathematics' },
-                { answerText: 'engineering' },
-                { answerText: 'computing' },
-                { answerText: 'business and management' },
-                { answerText: 'fine arts' },
-                { answerText: 'legal studies' },
-                { answerText: 'medical services' },
-                { answerText: 'environmental studies/planning' },
-                { answerText: 'architecture' },
-                { answerText: 'humanities (behavioral/social)' },
-                { answerText: 'humanities (languages/history/philosophy)' },
+                { answerText: 'Highly Selective' },
+                { answerText: 'Selective' },
+                { answerText: 'Less Selective' }
             ],
         },
 
         {
-            questionText: 'Do you want the college to give a holistic academic experience?',
+            questionText: 'Are you interested in participating in Greek life?',
             answerOptions: [
                 { answerText: 'Yes' },
-                { answerText: 'No' },
+                { answerText: 'No' }
             ]
-        }
-
+        },
+        {
+            questionText: 'Do you have a preference for a college with a specific type of academic calendar (e.g. semester, quarter)?',
+            answerOptions: [
+                { answerText: 'Yes, Semester' },
+                { answerText: 'Yes, Quarter' },
+                { answerText: 'No' }
+            ]
+        },
+        {
+            questionText: 'Do you have a preference for a college with a rural, suburban, or urban campus?',
+            answerOptions: [
+                { answerText: 'Yes, Rural' },
+                { answerText: 'Yes, Suburban' },
+                { answerText: 'Yes, Urban' },
+                { answerText: 'No' }
+            ]
+        },
+        {
+            questionText: 'Are geographical features important: beaches, mountains, rivers, lakes, plains?',
+            answerOptions: [
+                { answerText: 'Yes, beaches' },
+                { answerText: 'Yes, mountains' },
+                { answerText: 'Yes, rivers' },
+                { answerText: 'Yes, lakes' },
+                { answerText: 'Yes, plains' },
+                { answerText: 'No' }
+            ]
+        },
     ];
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [userResponses, setUserResponses] = useState([]);
@@ -103,12 +119,12 @@ export const InitialQuiz = () => {
         }
     }
 
-    const goToAcademicQuestionnaire = async (e) => {
+    const goToOpportunities = async (e) => {
         try {
             console.log(e);
-            navigate('/academic_traits')
+            navigate('/opp_info')
         }
-        catch{
+        catch {
             console.log(e);
         }
     }
@@ -122,13 +138,7 @@ export const InitialQuiz = () => {
                         <QuizResults userResponses={userResponses} userId={userId} />
                         <br />
                         <button onClick={goToProfilePage}>Go back to profile</button>
-                        <button onClick={goToAcademicQuestionnaire}>Continue: Academic Traits</button>
-
-                        {/* <div>
-                            {responses.map((response) => (
-                                <div key={response.id}> {response.text} </div>
-                            ))}
-                        </div> */}
+                        <button onClick={goToOpportunities}>Continue: Opportunistic Information</button>
                     </div>
                 ) : (
                     <>

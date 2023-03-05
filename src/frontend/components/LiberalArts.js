@@ -1,8 +1,8 @@
 import React from 'react'
 import parsedData1 from '../../backend/liberal_arts.json'
 import 'bootstrap/dist/css/bootstrap.css'
+import '../styles/table.css'
 function LiberalArts() {
-    // console.log(parsedData1);
     const data = parsedData1.map(
         (info) => {
             return (
@@ -16,13 +16,13 @@ function LiberalArts() {
         }
     )
     return (
-        <div>
-            <table className='table table-hover'>
+        <div className='App'>
+            <table className='table table-hover white-text'>
                 <thead>
                     <tr>
                         <th>College</th>
                         <th>USNews 2023 Ranking</th>
-                        <th>State</th>
+                        <th>State/Territory</th>
                         <th>IPEDS ID</th>
                     </tr>
                 </thead>
