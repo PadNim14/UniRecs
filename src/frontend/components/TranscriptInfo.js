@@ -6,13 +6,13 @@ import { collection, addDoc } from "firebase/firestore";
 import { getAuth } from 'firebase/auth';
 
 export const TranscriptInfo = () => {
-    const [gpa, setGPA] = useState(0.00);
-    const [SAT_MATH, setSAT_MATH] = useState(200);
-    const [SAT_EBRW, setSAT_EBRW] = useState(200);
-    const [ACT_MATH, setACT_MATH] = useState(1);
-    const [ACT_READING, setACT_READING] = useState(1);
-    const [ACT_ENGLISH, setACT_ENGLISH] = useState(1);
-    const [ACT_SCIENCE, setACT_SCIENCE] = useState(1);
+    const [gpa, setGPA] = useState(3.70);
+    const [SAT_MATH, setSAT_MATH] = useState(600);
+    const [SAT_EBRW, setSAT_EBRW] = useState(600);
+    const [ACT_MATH, setACT_MATH] = useState(26);
+    const [ACT_READING, setACT_READING] = useState(27);
+    const [ACT_ENGLISH, setACT_ENGLISH] = useState(29);
+    const [ACT_SCIENCE, setACT_SCIENCE] = useState(30);
     const [courses, setCourses] = useState("");
     const [AP, setAP] = useState("");
     const [IB, setIB] = useState("");

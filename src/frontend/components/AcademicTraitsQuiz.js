@@ -16,7 +16,7 @@ export const AcademicTraitsQuiz = () => {
             ],
         },
         {
-            questionText: 'Do you feel strongly about your personal philosophy',
+            questionText: 'Do you feel strongly about your personal philosophy?',
             answerOptions: [
                 { answerText: 'Yes'},
                 { answerText: 'No' }
@@ -24,14 +24,14 @@ export const AcademicTraitsQuiz = () => {
         },
 
         {
-            questionText: 'Do you enjoy collaborating with others',
+            questionText: 'Do you enjoy collaborating with others?',
             answerOptions: [
                 { answerText: 'Yes' },
                 { answerText: 'No' }
             ]
         },
         {
-            questionText: 'Do you enjoy learning new material',
+            questionText: 'Do you enjoy learning new material?',
             answerOptions: [
                 { answerText: 'Yes' },
                 { answerText: 'No' }
