@@ -18,7 +18,7 @@ const UserResponses = () => {
         };
         fetchUserResponses();
     }, [user]);
-    
+
     const navigate = useNavigate();
     const goToProfilePage = async (e) => {
         try {
@@ -27,6 +27,15 @@ const UserResponses = () => {
         }
         catch {
             console.log(e.message);
+        }
+    }
+    const handleQuiz = async (e) => {
+        try {
+            console.log(e)
+            navigate('/quiz')
+        }
+        catch (e) {
+            console.log(e.message)
         }
     }
 
@@ -57,7 +66,12 @@ const UserResponses = () => {
                 </div>
             ) : (
                 <div>
-                    <h2>You have not taken any quizzes yet!</h2>
+                    <center>
+                        <h2>You have not taken any quizzes yet!</h2>
+                        <button onClick={goToProfilePage}>Go back to profile</button>
+                        <button onClick={handleQuiz}>Take Quiz</button>
+
+                    </center>
                 </div>
             )}
             <br />

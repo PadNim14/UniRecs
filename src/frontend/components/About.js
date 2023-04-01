@@ -12,7 +12,8 @@ function About() {
       {/* <h2>And so much more...</h2> */}
       <center>
 
-        <h3 align="left">
+        {/* <h5 align="center"> */}
+          <p>
           Here at UniRecs, we want to make where you go to college an easy process.
           We start every user with an initial questionnaire that assesses the interests of students,
           both academic and extracurricular-wise.
@@ -22,7 +23,9 @@ function About() {
           Andrew G. Reiter, “U.S. News & World Report Historical Liberal Arts College and University Rankings,”
           (<a href='https://andyreiter.com/datasets/' target="_blank" rel="noopener noreferrer">https://andyreiter.com/datasets/</a>).
 
-        </h3>
+          </p>
+
+        {/* </h5> */}
       </center>
 
       {/* <br />

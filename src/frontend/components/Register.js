@@ -38,7 +38,7 @@ export const Register = (props) => {
     return (
         <div className='App'>
             <div className="auth-form-container">
-                <h2>Let's tackle cost of attendance together.</h2>
+                <h2>Find your perfect college fit today.</h2>
                 <h3>Create New Account</h3>
                 <form className="register-form" onSubmit={handleSubmit}>
                     <label className="label">Full Name</label>

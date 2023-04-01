@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, 
+    // useEffect 
+} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { database } from '../../backend/firebase';
-import { collection, addDoc } from "firebase/firestore";
+// import { database } from '../../backend/firebase';
+// import { collection, addDoc } from "firebase/firestore";
 // import QuizResults from './InitialQuizResults';
-import { getAuth } from 'firebase/auth';
+// import { getAuth } from 'firebase/auth';
 
 export const TranscriptInfo = () => {
     const [gpa, setGPA] = useState(3.70);
@@ -14,12 +16,12 @@ export const TranscriptInfo = () => {
     const [ACT_ENGLISH, setACT_ENGLISH] = useState(29);
     const [ACT_SCIENCE, setACT_SCIENCE] = useState(30);
     const [courses, setCourses] = useState("");
-    const [AP, setAP] = useState("");
-    const [IB, setIB] = useState("");
+    // const [AP, setAP] = useState("");
+    // const [IB, setIB] = useState("");
 
     // const [userResponses, setUserResponses] = useState([]);
-    const currentUser = getAuth().currentUser;
-    const userId = currentUser.uid;
+    // const currentUser = getAuth().currentUser;
+    // const userId = currentUser.uid;
 
     // useEffect(() => {
 

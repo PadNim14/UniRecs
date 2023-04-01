@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../context/AuthContext';
 import { collection, getDocs, where, query } from "firebase/firestore";
 import { database } from '../../backend/firebase';
+import axios from 'axios';
 function Profile() {
     const { user, logout } = UserAuth();
     const navigate = useNavigate();
@@ -25,6 +26,17 @@ function Profile() {
         }
         catch (e) {
             console.log(e.message)
+        }
+    };
+
+    const handleRecs = async (e) => {
+        try {
+            const response = await axios.post('/recs');
+            console.log(response.data);
+            navigate('/results', {data: response.data})
+        }
+        catch (e) {
+            console.log(e.message);
         }
     }
 
@@ -66,6 +78,9 @@ function Profile() {
                 <br />
                 <br />
                 <button onClick={handleResults}>Previous Responses</button>
+                <br />
+                <br />
+                <button onClick={handleRecs}>Recs</button>
             </center>
         </div>
     )
