@@ -1,11 +1,11 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
-
-function Results(props) {
+function Results() {
     const navigate = useNavigate();
-    // const { data } = props.location.state;
-    // console.log(props.location.state);
+    const location = useLocation();
+    const { data } = location.state;
+    const dataSet = new Set(data.split(/, (?![^(]*\))/))
     const goToProfilePage = async (e) => {
         try {
             console.log(e);
@@ -18,8 +18,15 @@ function Results(props) {
     return (
         <div className='App'>
             <center>
-                <h1>Recommendation</h1>
-                {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+                <h1>Your College Recommendations</h1>
+                {/* <pre>{JSON.stringify(data)}</pre> */}
+                {/* <h7>{Array.from(data)}</h7> */}
+                <div>
+                    {Array.from(dataSet).map((college, index) => (
+                        <li key={index}>{college}</li>
+                    ))}
+                </div>
+                <br />
                 <button onClick={goToProfilePage}>Go back to profile</button>
             </center>
         </div>

@@ -20,6 +20,7 @@ def get_similar_colleges(college, n=10):
     
     college_index = college_data.index[college_data['college'] == college].tolist()[0]
 
+    top_n_colleges = []
     # Compute the cosine similarity scores for all colleges
     cosine_sim_scores = list(enumerate(cosine_sim_matrix[college_index]))
 
@@ -28,8 +29,15 @@ def get_similar_colleges(college, n=10):
 
     # Get the top n similar colleges (excluding the given college itself)
     top_n_colleges = [(college_data.iloc[i]['college'], sorted_colleges[i][1]) for i in range(1, n+1) if sorted_colleges[i][0] != college_index]
+    seen_colleges = set()
+    for i in range(1, n+1):
+        college = college_data.iloc[i]['college']
+        similarity_score = sorted_colleges[i][1]
+        if sorted_colleges[i][0] != college_index and college not in seen_colleges:
+            top_n_colleges.append((college, similarity_score))
+            seen_colleges.add(college)
 
-    return top_n_colleges
+    return list(seen_colleges)
 
 # Define a function to recommend colleges based on a given major
 def recommend_colleges(major, n=10):
@@ -59,16 +67,16 @@ cs_schools = sorted(recommend_colleges('Computer Science'))
 engineering_schools = sorted(recommend_colleges('Engineering'))
 b_schools = sorted(recommend_colleges('Business'))
 # print(cs_schools)
-print("---CS SCHOOLS---")
-for col in cs_schools:
-    print(col[0])
-print("\n---ENGINEERING SCHOOLS---")
-for col in engineering_schools:
-    print(col[0])
+# print("---CS SCHOOLS---")
+# for col in cs_schools:
+#     print(col[0])
+# print("\n---ENGINEERING SCHOOLS---")
+# for col in engineering_schools:
+#     print(col[0])
 
-print("\n---BUSINESS SCHOOLS---")
-for col in b_schools:
-    print(col[0])
+# print("\n---BUSINESS SCHOOLS---")
+# for col in b_schools:
+#     print(col[0])
     
 # print(engineering_schools)
 
@@ -78,10 +86,10 @@ for col in b_schools:
 # print(recommended_colleges)
 
 # Test the similar colleges function
-college = 'Purdue University--West Lafayette'
-similar_colleges = get_similar_colleges(college)
-print("\nSimilar colleges to " + college + ":")
-for colleges in similar_colleges:
-    for col in colleges:
-        print(col)
+# college = 'Purdue University--West Lafayette'
+# similar_colleges = get_similar_colleges(college)
+# print("\nSimilar colleges to " + college + ":")
+# for colleges in similar_colleges:
+#     for col in colleges:
+#         print(col)
 # print(similar_colleges)

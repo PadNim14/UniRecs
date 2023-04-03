@@ -33,7 +33,7 @@ function Profile() {
         try {
             const response = await axios.post('/recs');
             console.log(response.data);
-            navigate('/results', {data: response.data})
+            navigate('/results', { state: { data: response.data } })
         }
         catch (e) {
             console.log(e.message);
@@ -67,9 +67,6 @@ function Profile() {
                 <p>
                     Email: {user && user.email}
                 </p>
-                <p>
-
-                </p>
 
                 <button onClick={handleLogout}>Logout</button>
                 <br />
@@ -80,7 +77,7 @@ function Profile() {
                 <button onClick={handleResults}>Previous Responses</button>
                 <br />
                 <br />
-                <button onClick={handleRecs}>Recs</button>
+                <button onClick={handleRecs}>Recommendations</button>
             </center>
         </div>
     )

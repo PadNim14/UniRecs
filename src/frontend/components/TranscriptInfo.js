@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState, 
     // useEffect 
 } from 'react';
@@ -64,9 +65,11 @@ export const TranscriptInfo = () => {
     }
 
     const goToResultsView = async (e) => {
+        e.preventDefault();
         try {
+            const response = await axios.post('/recs');
             console.log(e);
-            navigate('/results')
+            navigate('/results', {state: {data: response.data}});
         }
         catch {
             console.log(e);
