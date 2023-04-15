@@ -31,7 +31,7 @@ function Profile() {
 
     const handleRecs = async (e) => {
         try {
-            const response = await axios.post('/recs');
+            const response = await axios.post('/recs', { timeout: 5000});
             console.log(response.data);
             navigate('/results', { state: { data: response.data } })
         }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { database } from '../../backend/firebase';
-// import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 
 export const SubjectPreferences = () => {
     const [subjects, setSubjects] = useState([
@@ -26,26 +26,47 @@ export const SubjectPreferences = () => {
         );
     };
 
-    const submitPreferences = (subjects) => {
-        subjects.forEach((subject) => {
-            database.collection('subjectPreferences')
-                .add({
+    // const submitPreferences = async (subjects) => {
+    //     console.log("submitPreferences is called.");
+    //     for (const key in subjects) {
+    //         const subject = subjects[key];
+    //         console.log(subject);
+    //         try {
+    //             const docRef = await addDoc(collection(database, "subjectPreferences"), {
+    //                 name: subject.name,
+    //                 rank: subject.rank,
+    //             });
+    //             console.log("Document written with ID: ", docRef.id);
+    //         } catch (error) {
+    //             console.error("Error adding document", error);
+    //         }
+    //     }
+
+    //     console.log("Made it here");
+    //     // navigate('/environmental_information');
+    // };
+    const submitPreferences = async (subjects) => {
+        for (const subject in subjects) {
+            console.log(subject)
+            try {
+                const docRef = await addDoc(collection(database, "subjectPreferences"), {
                     name: subject.name,
                     rank: subject.rank,
-                })
-                .then((docRef) => {
-                    console.log("Document written with ID: ", docRef);
-                })
-                .catch((error) => {
-                    console.log("Error adding document", error);
                 });
-        });
+                console.log("Document written with ID: ", docRef.id);
+            } catch (error) {
+                console.error("Error adding document: ", error);
+            }
+        }
+        // navigate("/environmental_information");
     };
+
+
 
     const navigate = useNavigate();
     const handleSubmit = () => {
-        // submitPreferences(subjects);
-        console.log(subjects);
+        submitPreferences();
+        // console.log(subjects);
         navigate('/environmental_information');
 
     }
@@ -63,23 +84,23 @@ export const SubjectPreferences = () => {
                                     onChange={(e) => handleRanking(index, parseInt(e.target.value))}
                                 >
                                     <option value="0">Select Rank</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
+                                    {[...Array(12).keys()].slice(1).map((i) => (
+                                        <option
+                                            key={i}
+                                            value={i}
+                                            disabled={subjects.filter((s) => s.rank === i && s !== subject).length > 0}
+                                        >
+                                            {i}
+                                        </option>
+                                    ))}
                                 </select>
+
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
+            <br />
             <button onClick={handleSubmit}>Submit Preferences</button>
         </div>
     );
