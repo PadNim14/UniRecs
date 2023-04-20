@@ -46,6 +46,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "install": "pip install flask",
     "start-backend": "cd src/backend && python3 base.py",
     "build": "react-scripts build",
     "test": "react-scripts test",
