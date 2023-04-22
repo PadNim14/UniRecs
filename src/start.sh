@@ -1,10 +1,3 @@
 #!/bin/bash
-
-# Start the Python backend
-cd /backend
-python base.py &
-cd ..
-
-# Start the Node.js frontend
-cd /frontend
-npm start
+# Start the Node.js frontend and Python backend
+npm start & npm run start-backend
