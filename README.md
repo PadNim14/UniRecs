@@ -1,6 +1,11 @@
+
 # UniRecs
 
-Welcome to UniRecs, a website that recommends colleges and universities in the United States to prospective college students. To start using the app locally, run `npm start` to start the React application and  to start the Python Flask server. A browser tab will open up the landing page of the website:
+Welcome to UniRecs, a website that recommends colleges and universities in the United States to prospective college students. To start using the app locally, run `npm start` to start the React application and  to start the Python Flask server. A browser tab will open up the landing page of the website. We also have a Docker image on Docker Hub as well as a preliminary website domain:
+
+Docker Hub: [https://hub.docker.com/r/npadmana015/unirecs-test ](https://hub.docker.com/r/npadmana015/unirecs-test )
+
+DigitalOcean Website: [https://unirecs-test-h25g7.ondigitalocean.app/](https://unirecs-test-h25g7.ondigitalocean.app/)
 
 ![1681767780643](image/README/1681767780643.png)
 

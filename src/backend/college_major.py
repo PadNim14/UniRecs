@@ -67,16 +67,16 @@ cs_schools = sorted(recommend_colleges('Computer Science'))
 engineering_schools = sorted(recommend_colleges('Engineering'))
 b_schools = sorted(recommend_colleges('Business'))
 # print(cs_schools)
-# print("---CS SCHOOLS---")
-# for col in cs_schools:
-#     print(col[0])
-# print("\n---ENGINEERING SCHOOLS---")
-# for col in engineering_schools:
-#     print(col[0])
+print("---CS SCHOOLS---")
+for col in cs_schools:
+    print(col[0])
+print("\n---ENGINEERING SCHOOLS---")
+for col in engineering_schools:
+    print(col[0])
 
-# print("\n---BUSINESS SCHOOLS---")
-# for col in b_schools:
-#     print(col[0])
+print("\n---BUSINESS SCHOOLS---")
+for col in b_schools:
+    print(col[0])
     
 # print(engineering_schools)
 

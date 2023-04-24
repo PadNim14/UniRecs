@@ -4,14 +4,8 @@ app = Flask(__name__)
 
 @app.route('/recs', methods=['GET', 'POST'])
 def show_recommendations():
-    colleges = cm.get_similar_colleges("University of Michigan--Ann Arbor")
-    # form = ""
-    # for col in test:
-    #     form += col[0] + "\n"
+    colleges = cm.get_similar_colleges("Cornell University")
     return jsonify(colleges)
-
-
-
 
 
 if __name__ == "__main__":
