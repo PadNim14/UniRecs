@@ -35,7 +35,7 @@ function Results() {
     return (
         <div className='App'>
             <center>
-                {/* <h1>Your College Recommendations</h1> */}
+                <h1>Your College Recommendations</h1>
                 {/* <pre>{JSON.stringify(data)}</pre> */}
                 {/* <h7>{Array.from(data)}</h7> */}
                 {/* <div>
@@ -44,7 +44,7 @@ function Results() {
                         ))}
                     </div> */}
                 <CollegeCards colleges={colleges} />
-                <button onClick={goToProfilePage}>Go back to profile</button>
+                <button className='btn btn-primary' onClick={goToProfilePage}>Go back to profile</button>
                 <br />
             </center>
         </div>

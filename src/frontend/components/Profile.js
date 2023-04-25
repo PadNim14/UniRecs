@@ -68,16 +68,16 @@ function Profile() {
                     Email: {user && user.email}
                 </p>
 
-                <button onClick={handleLogout}>Logout</button>
+                <button className='btn btn-primary' onClick={handleLogout}>Logout</button>
                 <br />
                 <br />
-                <button onClick={handleQuiz}>Take Quiz</button>
+                <button className='btn btn-primary' onClick={handleQuiz}>Take Quiz</button>
                 <br />
                 <br />
-                <button onClick={handleResults}>Previous Responses</button>
+                <button className='btn btn-primary' onClick={handleResults}>Previous Responses</button>
                 <br />
                 <br />
-                <button onClick={handleRecs}>Recommendations</button>
+                <button className='btn btn-primary' onClick={handleRecs}>Recommendations</button>
             </center>
         </div>
     )

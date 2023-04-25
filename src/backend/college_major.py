@@ -19,7 +19,7 @@ def get_similar_colleges(college, n=10):
     # Get the index of the given college
     
     college_index = college_data.index[college_data['college'] == college].tolist()[0]
-
+    # print(college_data['college'], college_data['url'])
     top_n_colleges = []
     # Compute the cosine similarity scores for all colleges
     cosine_sim_scores = list(enumerate(cosine_sim_matrix[college_index]))
@@ -32,10 +32,11 @@ def get_similar_colleges(college, n=10):
     seen_colleges = set()
     for i in range(1, n+1):
         college = college_data.iloc[i]['college']
+        url = college_data.iloc[i]['url']
         similarity_score = sorted_colleges[i][1]
         if sorted_colleges[i][0] != college_index and college not in seen_colleges:
             top_n_colleges.append((college, similarity_score))
-            seen_colleges.add(college)
+            seen_colleges.add((college, url))
 
     return list(seen_colleges)
 
@@ -63,20 +64,25 @@ def recommend_colleges(major, n=10):
     return recommended_colleges
 
 # Test the recommendation function
-cs_schools = sorted(recommend_colleges('Computer Science'))
-engineering_schools = sorted(recommend_colleges('Engineering'))
-b_schools = sorted(recommend_colleges('Business'))
-# print(cs_schools)
-print("---CS SCHOOLS---")
-for col in cs_schools:
-    print(col[0])
-print("\n---ENGINEERING SCHOOLS---")
-for col in engineering_schools:
-    print(col[0])
 
-print("\n---BUSINESS SCHOOLS---")
-for col in b_schools:
-    print(col[0])
+school = "Cornell University"
+cm = get_similar_colleges(school)
+print(cm)
+
+# cs_schools = sorted(recommend_colleges('Computer Science'))
+# engineering_schools = sorted(recommend_colleges('Engineering'))
+# b_schools = sorted(recommend_colleges('Business'))
+# print(cs_schools)
+# print("---CS SCHOOLS---")
+# for col in cs_schools:
+#     print(col)
+# print("\n---ENGINEERING SCHOOLS---")
+# for col in engineering_schools:
+#     print(col[0])
+
+# print("\n---BUSINESS SCHOOLS---")
+# for col in b_schools:
+#     print(col[0])
     
 # print(engineering_schools)
 

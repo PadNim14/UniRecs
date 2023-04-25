@@ -65,9 +65,10 @@ export const Login = (props) => {
 
                     <label htmlFor="password">Password</label>
                     <input onChange={(e) => { setPassword(e.target.value) }} className="input" value={password} type="password" placeholder="************" id="password" name="password"></input>
-                    <button type="submit">Login</button>
+                    <button className='btn btn-primary' type="submit">Login</button>
                 </form>
-                <button className="link-btn" onClick={handleRegClick}>No account? Register here!</button>
+                <br />
+                <button className='btn btn-primary' onClick={handleRegClick}>No account? Register here!</button>
             </div>
         </div>
 

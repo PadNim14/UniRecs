@@ -1,44 +1,44 @@
-major,college
-Computer Science,Massachusetts Institute of Technology (MIT)
-Computer Science,Carnegie Mellon University
-Computer Science,Stanford University
-Computer Science,University of California--Berkeley
-Computer Science,California Institute of Technology (Caltech)
-Computer Science,University of Michigan--Ann Arbor
-Computer Science,University of Illinois--Urbana-Champaign
-Computer Science,Purdue University--West Lafayette
-Engineering,Massachusetts Institute of Technology (MIT)
-Engineering,Stanford University
-Engineering,University of California--Berkeley
-Engineering,California Institute of Technology (Caltech)
-Engineering,Georgia Institute of Technology
-Engineering,University of Michigan--Ann Arbor
-Engineering,Carnegie Mellon University
-Engineering,University of Illinois--Urbana-Champaign
-Engineering,Cornell University
-Engineering,Purdue University--West Lafayette
-Engineering,University of Texas at Austin
-Business,University of Pennsylvania
-Business,Stanford University
-Business,Harvard University
-Business,Massachusetts Institute of Technology
-Business,University of California--Berkeley
-Business,University of Michigan--Ann Arbor
-Business,Carnegie Mellon University
-Business,New York University
-Business,University of Texas at Austin
-Business,Cornell University
-Business,Indiana University--Bloomington
-Business,University of North Carolina at Chapel Hill
-Business,University of Southern California
-Business,University of Virginia
-Psychology,Stanford University
-Psychology,Harvard University
-Psychology,University of California--Berkeley
-Psychology,University of California--Los Angeles
-Psychology,University of Michigan--Ann Arbor
-Biology,Massachusetts Institute of Technology (MIT)
-Biology,Harvard University
-Biology,California Institute of Technology (Caltech)
-Biology,Stanford University
-Biology,Princeton University
+major,college,url
+Computer Science,Massachusetts Institute of Technology,www.mit.edu
+Computer Science,Carnegie Mellon University,www.cmu.edu
+Computer Science,Stanford University,www.stanford.edu
+Computer Science,University of California--Berkeley,www.berkeley.edu
+Computer Science,California Institute of Technology,www.caltech.edu
+Computer Science,University of Michigan--Ann Arbor,www.umich.edu
+Computer Science,University of Illinois--Urbana-Champaign,www.illinois.edu
+Computer Science,Purdue University--West Lafayette,www.purdue.edu
+Engineering,Massachusetts Institute of Technology (MIT),www.mit.edu
+Engineering,Stanford University,www.stanford.edu
+Engineering,University of California--Berkeley,www.berkeley.edu
+Engineering,California Institute of Technology (Caltech),www.caltech.edu
+Engineering,Georgia Institute of Technology,www.gatech.edu
+Engineering,University of Michigan--Ann Arbor,www.umich.edu
+Engineering,Carnegie Mellon University,www.cmu.edu
+Engineering,University of Illinois--Urbana-Champaign,www.illinois.edu
+Engineering,Cornell University,www.cornell.edu
+Engineering,Purdue University--West Lafayette,www.purdue.edu
+Engineering,University of Texas at Austin,www.utexas.edu
+Business,University of Pennsylvania,www.upenn.edu
+Business,Stanford University,www.stanford.edu
+Business,Harvard University,www.harvard.edu
+Business,Massachusetts Institute of Technology,www.mit.edu
+Business,University of California--Berkeley,www.berkeley.edu
+Business,University of Michigan--Ann Arbor,www.umich.edu
+Business,Carnegie Mellon University,www.cmu.edu
+Business,New York University,www.nyu.edu
+Business,University of Texas at Austin,www.utexas.edu
+Business,Cornell University,www.cornell.edu
+Business,Indiana University--Bloomington,www.iu.edu
+Business,University of North Carolina at Chapel Hill,www.unc.edu
+Business,University of Southern California,www.usc.edu
+Business,University of Virginia,www.uva.edu
+Psychology,Stanford University,www.stanford.edu
+Psychology,Harvard University,www.harvard.edu
+Psychology,University of California--Berkeley,www.berkeley.edu
+Psychology,University of California--Los Angeles,www.ucla.edu
+Psychology,University of Michigan--Ann Arbor,www.umich.edu
+Biology,Massachusetts Institute of Technology (MIT),www.mit.edu
+Biology,Harvard University,www.harvard.edu
+Biology,California Institute of Technology (Caltech),www.caltech.edu
+Biology,Stanford University,www.stanford.edu
+Biology,Princeton University,www.princeton.edu

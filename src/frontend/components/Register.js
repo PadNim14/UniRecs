@@ -51,9 +51,10 @@ export const Register = (props) => {
 
                     <label className="label" htmlFor="confirmpassword">Confirm Password</label>
                     <input className="input" value={confirm} onChange={(e) => setConfirm(e.target.value)} type="password" placeholder="************" id="confirmpassword" name="confirmpassword"></input>
-                    <button type="submit">Login</button>
+                    <button className='btn btn-primary' type="submit">Login</button>
                 </form>
-                <button className="link-btn" onClick={handleLoginClick}>Have account? Login here!</button>
+                <br />
+                <button className='btn btn-primary' onClick={handleLoginClick}>Have account? Login here!</button>
             </div>
         </div>
 
