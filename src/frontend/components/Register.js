@@ -4,6 +4,7 @@ import React, { useState } from "react";
 // import { auth } from "../../backend/firebase.js"
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
+import grad from '../assets/stanford2.jpg';
 // import { 
 //     createUserWithEmailAndPassword,
 //     onAuthStateChanged,
@@ -20,8 +21,8 @@ export const Register = (props) => {
     const [error, setError] = useState('');
     const [confirm, setConfirm] = useState('');
     const navigate = useNavigate();
-    const handleLoginClick = () => navigate('/login', {replace: true});
-    const { createUser }  = UserAuth();
+    const handleLoginClick = () => navigate('/login', { replace: true });
+    const { createUser } = UserAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -36,26 +37,40 @@ export const Register = (props) => {
         }
     }
     return (
-        <div className='App'>
-            <div className="auth-form-container">
-                <h2>Find your perfect college fit today.</h2>
-                <h3>Create New Account</h3>
-                <form className="register-form" onSubmit={handleSubmit}>
-                    <label className="label">Full Name</label>
-                    <input className="input" value={name} onChange={(e) => setName(e.target.value)} name="name" id="name" placeholder="Full Name" />
-                    <label className="label" htmlFor="email">Email</label>
-                    <input className="input" value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="username@email.com" id="email" name="email"></input>
+        <div className="auth-form-container">
+            <img src={grad} alt="My Image" />
+            <div className="content">
+                <center>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
 
-                    <label className="label" htmlFor="password">Password</label>
-                    <input className="input" value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="************" id="password" name="password"></input>
+                    <span className="img-txt">Find your perfect college fit today!</span>
+                    <br />
+                    <br />
+                    <br />
+                    <span className="img-small-txt">Create a new account.</span>
+                    
+                    <form className="register-form" onSubmit={handleSubmit}>
+                        <label className="label">Full Name</label>
+                        <input className="input" value={name} onChange={(e) => setName(e.target.value)} name="name" id="name" placeholder="Full Name" />
+                        <label className="label" htmlFor="email">Email</label>
+                        <input className="input" value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="username@email.com" id="email" name="email"></input>
 
-                    <label className="label" htmlFor="confirmpassword">Confirm Password</label>
-                    <input className="input" value={confirm} onChange={(e) => setConfirm(e.target.value)} type="password" placeholder="************" id="confirmpassword" name="confirmpassword"></input>
-                    <button className='btn btn-primary' type="submit">Login</button>
-                </form>
-                <br />
-                <button className='btn btn-primary' onClick={handleLoginClick}>Have account? Login here!</button>
+                        <label className="label" htmlFor="password">Password</label>
+                        <input className="input" value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="************" id="password" name="password"></input>
+                        <br />
+                        <label className="label" htmlFor="confirmpassword">Confirm Password</label>
+                        <input className="input" value={confirm} onChange={(e) => setConfirm(e.target.value)} type="password" placeholder="************" id="confirmpassword" name="confirmpassword"></input>
+                        <button className='btn btn-secondary' type="submit">Login</button>
+                    </form>
+                    <br />
+                    <button className='btn btn-secondary' onClick={handleLoginClick}>Have account? Login here!</button>
+                </center>
             </div>
+
         </div>
 
     )

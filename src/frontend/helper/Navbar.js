@@ -12,9 +12,7 @@ function Navbar() {
     }, [location]);
 
     return (
-        <div className='navbar'
-            id={expandNavBar ? "open" : "close"}
-        >
+        <div id={expandNavBar ? "open" : "close"}>
             <div className='toggleButton'>
                 <button
                     onClick={() => {
@@ -23,16 +21,27 @@ function Navbar() {
                 >
                 </button>
             </div>
-            <div className='links'>
-                <Link to="/">Home</Link>
+            <div className='navbar'>
+                {/* <Link to="/contact">Contact Us</Link> */}
+                {/* <Link to="/">Home</Link>
                 <Link to="/login">Login</Link>
                 <Link to="/register">Register</Link>
                 <Link to="/sample_database">National University Rankings</Link>
                 <Link to="/liberal_arts">Liberal Arts College Rankings</Link>
-                <Link to="/about">About Us</Link>
+                <Link to="/about">About Us</Link> */}
                 {/* <Link to="/experience">Experience</Link> */}
+                <div className='links'>
+                    <Link to="/">Home</Link>
+                    <Link to="/login">Login</Link>
+                    <Link to="/register">Register</Link>
+                    <Link to="/sample_database">National University Rankings</Link>
+                    <Link to="/liberal_arts">Liberal Arts College Rankings</Link>
+                    <Link to="/about">About Us</Link>
+                </div>
             </div>
+
         </div>
+
     )
 }
 

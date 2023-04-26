@@ -36,7 +36,7 @@ function SampleData() {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <table className='table table-hover white-text'>
+                <table className='table table-hover'>
                     <thead>
                         <tr>
                             <th>University</th>

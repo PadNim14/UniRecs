@@ -1,12 +1,15 @@
+import ImageOne from '../components/ImageOne';
+import ImageTwo from '../components/ImageTwo';
+import ImageThree from '../components/ImageThree';
+import ImageFour from '../components/ImageFour';
+
 export default function Home() {
     return (
-        <div className="App">
-            <center>
-                <h1>UniRecs</h1>
-                <br />
-                <h5>Your one stop shop to finding the perfect college fit.</h5>
-            </center>
+        <div>
+            <ImageOne />
+            <ImageTwo />
+            <ImageThree />
+            <ImageFour />
         </div>
-
     )
 }

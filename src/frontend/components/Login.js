@@ -1,9 +1,9 @@
-// import e from "express";
 import React, { useState } from "react";
-    // useEffect } 
+// useEffect } 
 import { useNavigate } from 'react-router-dom';
 import { auth } from "../../backend/firebase.js";
 import { UserAuth } from "../../context/AuthContext.js";
+import grad from '../assets/stanford3.jpg'
 // import { useHistory } from 'react-router-dom';
 
 import {
@@ -28,7 +28,7 @@ export const Login = (props) => {
     const [user, setUser] = useState({});
     const handleRegClick = () => navigate('/register', { replace: true });
 
-    
+
     const login = async (e) => {
         e.preventDefault();
         setError('')
@@ -49,27 +49,33 @@ export const Login = (props) => {
         await signOut(auth);
     }
 
-    // function handleClick() {
-    //     let history = useHistory();
-    //     history.push('/register');
-    // }
-
 
     return (
-        <div className="App">
-            <div className="auth-form-container">
-                <h2>Welcome again!</h2>
-                <form className="login-form" onSubmit={login}>
-                    <label htmlFor="email">Email</label>
-                    <input onChange={(e) => { setEmail(e.target.value) }} className="input" value={email} type="email" placeholder="username@email.com" id="email" name="email"></input>
+        <div className="auth-form-container">
+            {/* <h2>Welcome again!</h2> */}
+            <img src={grad} alt="My Image" />
+            <div className="content">
+                <center>
+                    <br />
+                    <span className="img-txt">Welcome again!</span>
+                    <form className="auth-form-container" onSubmit={login}>
+                        <br />
+                        <label className='label' htmlFor="email">Email</label>
+                        <input onChange={(e) => { setEmail(e.target.value) }} className="input" value={email} type="email" placeholder="username@email.com" id="email" name="email"></input>
 
-                    <label htmlFor="password">Password</label>
-                    <input onChange={(e) => { setPassword(e.target.value) }} className="input" value={password} type="password" placeholder="************" id="password" name="password"></input>
-                    <button className='btn btn-primary' type="submit">Login</button>
-                </form>
-                <br />
-                <button className='btn btn-primary' onClick={handleRegClick}>No account? Register here!</button>
+                        <label className='label' htmlFor="password">Password</label>
+                        <input onChange={(e) => { setPassword(e.target.value) }} className="input" value={password} type="password" placeholder="************" id="password" name="password"></input>
+                        <br />
+                        <button className='btn btn-secondary' type="submit">Login</button>
+                    </form>
+                    <br />
+                    
+                    <button className='btn btn-secondary' onClick={handleRegClick}>No account? Register here!</button>
+                    <br />
+                </center>
+
             </div>
+
         </div>
 
     )

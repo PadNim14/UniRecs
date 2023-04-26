@@ -21,7 +21,6 @@ import { AuthContextProvider } from './context/AuthContext';
 import ProtectedRoute from './frontend/components/ProtectedRoute';
 import Profile from './frontend/components/Profile';
 import UserResponses from './frontend/components/UserResponses';
-
 function App() {
 
   return (
@@ -120,13 +119,10 @@ function App() {
               </ProtectedRoute>
               }
             />
-
           </Routes>
-
         </Router>
       </AuthContextProvider>
-    </div>
-
+    </div >
   );
 }
 
