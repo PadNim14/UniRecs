@@ -1,17 +1,21 @@
-
 # UniRecs
 
-Welcome to UniRecs, a website that recommends colleges and universities in the United States to prospective college students. To start using the app locally, run `npm start` to start the React application and  to start the Python Flask server. A browser tab will open up the landing page of the website. We also have a Docker image on Docker Hub as well as a preliminary website domain:
+Welcome to UniRecs, a website that recommends colleges and universities in the United States to prospective college students. To start using the app locally, run `npm start` to start the React application and `npm run start-backend` to start the Python Flask server. A browser tab will open up the landing page of the website. We also have a Docker image on Docker Hub as well as a preliminary website domain:
 
-Docker Hub: [https://hub.docker.com/r/npadmana015/unirecs-test ](https://hub.docker.com/r/npadmana015/unirecs-test )
 
-DigitalOcean Website: [https://unirecs-test-h25g7.ondigitalocean.app/](https://unirecs-test-h25g7.ondigitalocean.app/)
+UPDATES:
 
-![1681767780643](image/README/1681767780643.png)
+Improved the frontend and user experience of the website; home page uses Parallax effect! (Inspired by Apple)
+
+[Docker Container on Docker Hub](https://hub.docker.com/r/npadmana015/unirecs-test)
+
+[DigitalOcean Website](https://unirecs-4kktt.ondigitalocean.app/)
+
+![1682530270684](image/README/1682530270684.png)
 
 You can hit the **Login** tab to login if you have an account already, or click on the **No Account? Register here!** link. You can also register for a new account by clicking **Register** tab.
 
-![1681767857777](image/README/1681767857777.png)
+![1682530304929](image/README/1682530304929.png)
 
 After logging into your account, you are presented with four buttons:
 
@@ -20,13 +24,15 @@ After logging into your account, you are presented with four buttons:
 * Previous Responses: Directs user to a list view of user's quiz responses
 * Recommendations: Presents a sample recommendation of colleges based on cosine similarity
 
-![1681768687011](image/README/1681768687011.png)
+![1682530327523](image/README/1682530327523.png)
 
 Here's a sample view of recommendations:
 
-![1681769310362](image/README/1681769310362.png)
+![1682530354389](image/README/1682530354389.png)
 
 As for the progress of this project, we still need to refine our recommendations to be expanded to more colleges and universities. In addition, we are working on improving the connection between the user responses and the strength of the recommendations. We are open to having improved datasets to make better recommendations as well as having updates for new USNews rankings. Please make a pull request to alert us for any changes you want to see.
+
+
 
 # This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
