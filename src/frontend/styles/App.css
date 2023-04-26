@@ -12,17 +12,15 @@ code {
     monospace;
 }
 
-/* .App {
+.App {
   text-align: center;
   display: flex;
   min-height: 100vh !important;
   align-items: center !important;
   justify-content: center;
-  color: white;
-  font-family: San Francisco;
-
-  background-image: linear-gradient(78deg, #7b93d4, #807dd5 48%, #4397c7);
-} */
+  background: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+  /* background-image: linear-gradient(48deg, #4b5648, #4b5638 48%, #4b5658); */
+}
 
 .image {
   position: relative;
@@ -178,4 +176,39 @@ code {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.text-box {
+  text-align: center;
+  padding: 3rem 1rem;
+  text-align: justify;
+}
+.about-container {
+  background-image: url('../assets/purdue.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Adjust the height as needed */
+}
+
+.creator-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.creator {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.creator img {
+  width: 200px;
+  height: 200px;
+  /* border-radius: 80%; */
+  margin-bottom: 10px;
 }

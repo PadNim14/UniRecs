@@ -5,9 +5,8 @@ const ImageOne = () => (
         <Parallax speed={10} className="image" bgImage={grad} strength={800}>
             <div className="content">
                 <span className="img-txt">
-                    Welcome to UniRecs!
+                    <h1>UniRecs</h1>
                 </span>
-
             </div>
         </Parallax>
     </div>
