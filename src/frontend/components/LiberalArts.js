@@ -36,7 +36,7 @@ function LiberalArts() {
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                 />
-                <table className='table table-hover white-text'>
+                <table className='table table-hover'>
                     <thead>
                         <tr>
                             <th>College</th>
