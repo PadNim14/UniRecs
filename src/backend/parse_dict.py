@@ -21,5 +21,5 @@ if __name__ == "__main__":
             "Field 6":9
         }
     }
-    parsedDict = parse_dict_sort(user)
+    parsedDict = parse_user_dict_sort(user)
     print(parsedDict)
