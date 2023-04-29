@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { database } from '../../backend/firebase';
 import { collection, addDoc } from "firebase/firestore";
@@ -8,110 +9,109 @@ import { getAuth } from 'firebase/auth';
 export const AcademicTraitsQuiz = () => {
 
     const questions = [
+        // {
+        //     questionText: 'Do you enjoy participating in extracurricular competition?',
+        //     answerOptions: [
+        //         { answerText: 'Yes' },
+        //         { answerText: 'No' }
+        //     ],
+        // },
         {
-            questionText: 'Would you participate in contests about problem solving?',
+            questionText: 'How important is your personal philosophy?',
             answerOptions: [
-                { answerText: 'Yes' },
-                { answerText: 'No' }
-            ],
-        },
-        {
-            questionText: 'Do you feel strongly about your personal philosophy?',
-            answerOptions: [
-                { answerText: 'Yes'},
-                { answerText: 'No' }
+                { answerText: 'I refuse to work if I don\'t agree with the work\'s principles', weight: { 'Liberal Arts': { 'weight': 2, 'Humanities': 5 } } },
+                { answerText: 'I\'m pretty stringent, but I can do work if it doesn\'t completely contradict my principles', weight: { 'Liberal Arts': { 'weight': 1, 'Humanities': 3 } } },
+                { answerText: 'I get work done, regardless if I agree with its principles or not', weight: { 'Liberal Arts': { 'weight': 0 } } }
             ],
         },
 
         {
-            questionText: 'Do you enjoy collaborating with others?',
+            questionText: 'Do you like working in groups?',
             answerOptions: [
-                { answerText: 'Yes' },
-                { answerText: 'No' }
+                { answerText: 'Absolutely not', weight: { 'STEM': { 'weight': 2, 'Engineering': 1, 'Computer Science': 1, 'Science': 1, 'Mathematics': 1 } } },
+                { answerText: 'I\'m indifferent', weight: { 'Business': { 'weight': 2, 'Finance': 1, 'Marketing': 1, 'Hospitality': 1, 'Management': 1 } } },
+                { answerText: 'I love group projects', weight: { 'Liberal Arts': { 'weight': 2, 'Humanities': 1, 'Social Sciences': 1, 'Arts': 1, 'Natural Sciences': 1 } } },
+
             ]
         },
         {
-            questionText: 'Do you enjoy learning new material?',
+            questionText: 'Which do you prefer?',
             answerOptions: [
-                { answerText: 'Yes' },
-                { answerText: 'No' }
+                { answerText: 'Learning new material', weight: { 'STEM': { 'weight': 2, 'Engineering': 1, 'Computer Science': 1, 'Science': 1, 'Mathematics': 1 } } },
+                { answerText: 'Learning old material', weight: { 'Business': { 'weight': 2, 'Engineering': 1, 'Computer Science': 1, 'Science': 1, 'Mathematics': 1 } } }
+            ]
+        },
+
+        {
+            questionText: 'Do you think studying different cultures is an important part of learning?',
+            answerOptions: [
+                { answerText: 'Yes. Learning about other cultures matters a lot', weight: { 'Liberal Arts': { 'weight': 1, 'Humanities': 2 } } },
+                { answerText: 'No. I can learn about other cultures by talking with others', weight: { 'Liberal Arts': { 'weight': 0 } } },
             ]
         },
         {
-            questionText: 'Do you enjoy being around nature?',
+            questionText: 'Do you prefer when things happen exactly as planned?',
             answerOptions: [
-                { answerText: 'Yes'},
-                { answerText: 'No'}
+                { answerText: 'Yes. I love predictability.', weight: { 'STEM': { 'weight': 2 }, 'Technology': { 'weight': 2 }, 'Mathematics': { 'weight': 2 } } },
+                { answerText: 'Sometimes. Some unpredictability makes things interesting.', weight: { 'Liberal Arts': { 'weight': 2 }, 'Humanities': { 'weight': 1 }, 'Science': { 'weight': 1 }, 'Arts': { 'weight': 1 }, 'Natural Sciences': { 'weight': 1 } } },
+                { answerText: 'No. I like thinking on my feet', weight: { 'Business': { 'weight': 2 }, 'Marketing': { 'weight': 1 }, 'Hospitality': { 'weight': 1 }, 'Management': { 'weight': 1 } } }
             ]
         },
         {
-            questionText: 'You enjoy learning about the differences between cultures and identity.',
+            questionText: 'If you could, would you travel for work?',
             answerOptions: [
-                { answerText: 'Strongly Agree' },
-                { answerText: 'Agree' },
-                { answerText: 'Neutral' },
-                { answerText: 'Disagree' },
-                { answerText: 'Strongly Disagree' }
+                { answerText: 'No. I like staying in one place', weight: { 'STEM': { 'weight': 2 }, 'Technology': { 'weight': 2 }, 'Mathematics': { 'weight': 2 } } },
+                { answerText: 'Yes. I want to explore', weight: { 'Business': { 'weight': 2 }, 'Marketing': { 'weight': 1 }, 'Hospitality': { 'weight': 1 }, 'Management': { 'weight': 1 } } }
             ]
         },
         {
-            questionText: 'You are more of a determinist.',
+            questionText: 'Do you find it easy to express your ideas with others?',
             answerOptions: [
-                { answerText: 'Strongly Agree' },
-                { answerText: 'Agree' },
-                { answerText: 'Neutral' },
-                { answerText: 'Disagree' },
-                { answerText: 'Strongly Disagree' }
+                { answerText: 'No. It\'s hard to get what I\'m thinking out into the world.', weight: { 'STEM': { 'weight': 1 } } },
+                { answerText: 'Eh. I can communicate, but it takes a while before people get what I\'m saying.', weight: { 'Liberal Arts': { 'weight': 1 } } },
+                { answerText: 'Yes. I can explain anything to anyone and they will understand.', weight: { 'Business': { 'weight': 1 } } },
             ]
         },
         {
-            questionText: 'You find it easy to converse with others.',
+            questionText: 'Would you consider yourself a patient person?',
             answerOptions: [
-                { answerText: 'Strongly Agree' },
-                { answerText: 'Agree' },
-                { answerText: 'Neutral' },
-                { answerText: 'Disagree' },
-                { answerText: 'Strongly Disagree' }
+                { answerText: 'Yes', weight: { 'STEM': { 'weight': 2 }, 'Business': { 'weight': 1 }, 'Liberal Arts': { 'weight': 1 } } },
+                { answerText: 'No', weight: { 'Liberal Arts': { 'weight': 2 }, 'Business': { 'weight': 1 }, 'STEM': { 'weight': 1 } } },
             ]
         },
         {
-            questionText: 'You are patient.',
+            questionText: 'Is getting work done more important than relaxing?',
             answerOptions: [
-                { answerText: 'Strongly Agree' },
-                { answerText: 'Agree' },
-                { answerText: 'Neutral' },
-                { answerText: 'Disagree' },
-                { answerText: 'Strongly Disagree' }
+                { answerText: 'Yes. If there\'s work to do, you have to get it done before you relax.', weight: { 'Business': { 'weight': 3 }, 'STEM': { 'weight': 2 }, 'Liberal Arts': { 'weight': 1 } } },
+                { answerText: 'Sometimes. It depends on mental state and fatigue.', weight: { 'Business': { 'weight': 1 }, 'STEM': { 'weight': 2 }, 'Liberal Arts': { 'weight': 2 } } },
+                { answerText: 'No. Relaxing is important for mental health.', weight: { 'Business': { 'weight': 0 }, 'STEM': { 'weight': 1 }, 'Liberal Arts': { 'weight': 3 } } },
             ]
         },
+
         {
-            questionText: 'Optimizing your time is more important than staying relaxed.',
+            questionText: 'Do you enjoy planning out projects?',
             answerOptions: [
-                { answerText: 'Strongly Agree' },
-                { answerText: 'Agree' },
-                { answerText: 'Neutral' },
-                { answerText: 'Disagree' },
-                { answerText: 'Strongly Disagree' }
-            ]
-        },
-        {
-            questionText: 'You enjoy planning out projects.',
-            answerOptions: [
-                { answerText: 'Strongly Agree' },
-                { answerText: 'Agree' },
-                { answerText: 'Neutral' },
-                { answerText: 'Disagree' },
-                { answerText: 'Strongly Disagree' }
+                {
+                    answerText: 'Yes. I like taking the lead in organizing projects.',
+                    weight: {
+                        'Business': { 'weight': 2 }, 'Management': { 'weight': 4 }, 'Engineering': { 'weight': 3 },
+                        'Marketing': { 'weight': 2 }, 'Arts': { 'weight': 2 }, 'Science': { 'weight': 1 },
+                        'Mathematics': { 'weight': 1 }, 'Hospitality': { 'weight': 1 }
+                    }
+                },
+
+                {
+                    answerText: 'No. I prefer working once I know what\'s expected.',
+                    weight: { 'STEM': { 'weight': 1 }, 'Technology': { 'weight': 2 }, 'Mathematics': { 'weight': 1 }, 'Humanities': { 'weight': 1 } }
+                },
             ]
         },
         {
             questionText: 'You want to uphold justice in society.',
             answerOptions: [
-                { answerText: 'Strongly Agree' },
-                { answerText: 'Agree' },
-                { answerText: 'Neutral' },
-                { answerText: 'Disagree' },
-                { answerText: 'Strongly Disagree' }
+                { answerText: 'Very important', weight: { 'Liberal Arts': { 'weight': 3 } } },
+                { answerText: 'Somewhat important', weight: { 'Liberal Arts': { 'weight': 1 } }},
+                { answerText: 'Not important', weight: { 'Liberal Arts': { 'weight': 0 } }},
             ]
         }
     ];
@@ -148,10 +148,11 @@ export const AcademicTraitsQuiz = () => {
         }
     })
 
-    const handleAnswerOptionClick = (answerText) => {
+    const handleAnswerOptionClick = (answerText, weight) => {
         const response = {
             question: questions[currentQuestion].questionText,
             answer: answerText,
+            weight: weight,
             userId: getAuth().currentUser.uid
         };
 
@@ -173,15 +174,18 @@ export const AcademicTraitsQuiz = () => {
         }
     }
 
-    const goToSubjectPreferences = async (e) => {
+    const goToResults = async (e) => {
+        e.preventDefault();
         try {
+            const response = await axios.post('/recs');
             console.log(e);
-            navigate('/subject_preferences')
+            navigate('/results', {state: {data: response.data}});
         }
-        catch{
+        catch {
             console.log(e);
         }
     }
+
 
     return (
         <div className='App'>
@@ -191,8 +195,8 @@ export const AcademicTraitsQuiz = () => {
                         {/* Made it to the end of questionnaire */}
                         <QuizResults userResponses={userResponses} userId={userId} />
                         <br />
-                        <button onClick={goToProfilePage}>Go back to profile</button>
-                        <button onClick={goToSubjectPreferences}>Continue: Subject Preferences</button>
+                        <button className='btn btn-success' onClick={goToProfilePage}>Go back to profile</button>
+                        <button className='btn btn-success' onClick={goToResults}>View Your Recommendations</button>
 
                         {/* <div>
                             {responses.map((response) => (
@@ -210,7 +214,7 @@ export const AcademicTraitsQuiz = () => {
                         </div>
                         <div>
                             {questions[currentQuestion].answerOptions.map((answerOption) => (
-                                <button key={answerOption.answerText} onClick={() => handleAnswerOptionClick(answerOption.answerText)}>{answerOption.answerText}</button>
+                                <button className='btn btn-success' key={answerOption.answerText} onClick={() => handleAnswerOptionClick(answerOption.answerText, answerOption.weight)}>{answerOption.answerText}</button>
                             ))}
                         </div>
                     </>

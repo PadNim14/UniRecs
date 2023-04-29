@@ -9,38 +9,62 @@ export const InitialQuiz = () => {
 
     const questions = [
         {
-            questionText: 'Do you know what you want to study?',
+            questionText: 'What field interests you most?',
             answerOptions: [
-                { answerText: 'Yes' },
-                { answerText: 'No' },
+                { answerText: 'STEM (Science, Technology, Engineering, Math)', weight: { 'STEM': { 'weight': 5 } } },
+                { answerText: 'Liberal Arts (Humanities, Social Sciences, Arts, Natural Sciences)', weight: { 'Liberal Arts': { 'weight': 5 } } },
+                { answerText: 'Business (Marketing, Accounting,  Finance, Management', weight: { 'Business': { 'weight': 5 } } }
                 // Have some redirect that takes care of No answer
                 // Render another quiz
             ],
         },
         {
-            questionText: 'If yes, what areas of study are you interested in?',
+            questionText: 'In the STEM field, what interests you most?',
             answerOptions: [
-                { answerText: 'not applicable'},
-                { answerText: 'natural sciences' },
-                { answerText: 'mathematics' },
-                { answerText: 'engineering' },
-                { answerText: 'computing' },
-                { answerText: 'business and management' },
-                { answerText: 'fine arts' },
-                { answerText: 'legal studies' },
-                { answerText: 'medical services' },
-                { answerText: 'environmental studies/planning' },
-                { answerText: 'architecture' },
-                { answerText: 'humanities (behavioral/social)' },
-                { answerText: 'humanities (languages/history/philosophy)' },
+                { answerText: 'Engineering', weight: { 'STEM': { 'weight': 1, 'Engineering': 2 } } },
+                { answerText: 'Computer Science', weight: { 'STEM': { 'weight': 1, 'Computer Science': 2 } } },
+                { answerText: 'Science', weight: { 'STEM': { 'weight': 1, 'Science': 2 } } },
+                { answerText: 'Mathematics', weight: { 'STEM': { 'weight': 1, 'Mathematics': 2 } } },
+                { answerText: 'STEM isn\'t my thing.', weight: { 'STEM': { 'weight': 0 } } }
             ],
         },
 
         {
-            questionText: 'Do you want the college to give a holistic academic experience?',
+            questionText: 'In the Liberal Arts field, what interests you most?',
             answerOptions: [
-                { answerText: 'Yes' },
-                { answerText: 'No' },
+                { answerText: 'Humanities', weight: { 'Liberal Arts': { 'weight': 1, 'Humanities': 2 } } },
+                { answerText: 'Social Sciences', weight: { 'Liberal Arts': { 'weight': 1, 'Social Sciences': 2 } } },
+                { answerText: 'Arts', weight: { 'Liberal Arts': { 'weight': 1, 'Arts': 2 } } },
+                { answerText: 'Natural Sciences', weight: { 'Liberal Arts': { 'weight': 1, 'Natural Sciences': 2 } } },
+                { answerText: 'These fields don\'t interest me.', weight: { 'Liberal Arts': { 'weight': 0 } } }
+
+            ]
+        },
+
+        {
+            questionText: 'In the Business field, what interests you the most?',
+            answerOptions: [
+                { answerText: 'Finance', weight: { 'Business': { 'weight': 1, 'Finance': 2 } } },
+                { answerText: 'Marketing', weight: { 'Business': { 'weight': 1, 'Marketing': 2 } } },
+                { answerText: 'Hospitality', weight: { 'Business': { 'weight': 1, 'Hospitality': 2 } } },
+                { answerText: 'Management', weight: { 'Business': { 'weight': 1, 'Management': 2 } } },
+                { answerText: 'These fields don\'t interest me.', weight: { 'Business': { 'weight': 0 } } }
+            ]
+        },
+        {
+            questionText: 'Does it matter how strong your college is in fields you aren\'t studying?',
+            answerOptions: [
+                { answerText: 'Yes, all other fields should be highly ranked.', weight: 2},
+                { answerText: 'No. As long as I\'m learning, it doesn\'t really matter.', weight: 0},
+                
+
+            ]
+        },
+        {
+            questionText: 'Does college ranking matter to you?',
+            answerOptions: [
+                { answerText: 'Yes. Ranking matters a lot to me.', weight: 1.25},
+                { answerText: 'No. As long as I\'m learning, it doesn\'t really matter.', weight: 0}
             ]
         }
 
@@ -78,10 +102,11 @@ export const InitialQuiz = () => {
         }
     })
 
-    const handleAnswerOptionClick = (answerText) => {
+    const handleAnswerOptionClick = (answerText, weight) => {
         const response = {
             question: questions[currentQuestion].questionText,
             answer: answerText,
+            weight: weight,
             userId: getAuth().currentUser.uid
         };
 
@@ -108,7 +133,7 @@ export const InitialQuiz = () => {
             console.log(e);
             navigate('/academic_traits')
         }
-        catch{
+        catch {
             console.log(e);
         }
     }
@@ -121,8 +146,8 @@ export const InitialQuiz = () => {
                         {/* Made it to the end of questionnaire */}
                         <QuizResults userResponses={userResponses} userId={userId} />
                         <br />
-                        <button onClick={goToProfilePage}>Go back to profile</button>
-                        <button onClick={goToAcademicQuestionnaire}>Continue: Academic Traits</button>
+                        <button className='btn btn-success' onClick={goToProfilePage}>Go back to profile</button>
+                        <button className='btn btn-success' onClick={goToAcademicQuestionnaire}>Continue: Academic Traits</button>
 
                         {/* <div>
                             {responses.map((response) => (
@@ -138,11 +163,14 @@ export const InitialQuiz = () => {
                             </div>
                             <div>{questions[currentQuestion].questionText}</div>
                         </div>
-                        <div>
-                            {questions[currentQuestion].answerOptions.map((answerOption) => (
-                                <button key={answerOption.answerText} onClick={() => handleAnswerOptionClick(answerOption.answerText)}>{answerOption.answerText}</button>
-                            ))}
-                        </div>
+                        <center>
+                            <div>
+                                {questions[currentQuestion].answerOptions.map((answerOption) => (
+                                    <button className='btn btn-success' key={answerOption.answerText} onClick={() => handleAnswerOptionClick(answerOption.answerText, answerOption.weight)}>{answerOption.answerText}</button>
+                                ))}
+
+                            </div>
+                        </center>
                     </>
                 )}
             </h2>
