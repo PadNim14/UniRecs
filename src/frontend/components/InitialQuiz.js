@@ -13,7 +13,7 @@ export const InitialQuiz = () => {
             answerOptions: [
                 { answerText: 'STEM (Science, Technology, Engineering, Math)', weight: { 'STEM': { 'weight': 5 } } },
                 { answerText: 'Liberal Arts (Humanities, Social Sciences, Arts, Natural Sciences)', weight: { 'Liberal Arts': { 'weight': 5 } } },
-                { answerText: 'Business (Marketing, Accounting,  Finance, Management', weight: { 'Business': { 'weight': 5 } } }
+                { answerText: 'Business (Marketing, Accounting, Finance, Management', weight: { 'Business': { 'weight': 5 } } }
                 // Have some redirect that takes care of No answer
                 // Render another quiz
             ],

@@ -1,11 +1,10 @@
 # UniRecs
 
-Welcome to UniRecs, a website that recommends colleges and universities in the United States to prospective college students. To start using the app locally, run `npm start` to start the React application and `npm run start-backend` to start the Python Flask server. A browser tab will open up the landing page of the website. We also have a Docker image on Docker Hub as well as a preliminary website domain:
-
-
 UPDATES:
 
 Improved the frontend and user experience of the website; home page uses Parallax effect! (Inspired by Apple)
+
+Welcome to UniRecs, a website that recommends colleges and universities in the United States to prospective college students. To start using the app locally, run `npm start` to start the React application and `npm run start-backend` to start the Python Flask server. A browser tab will open up the landing page of the website. We also have a Docker image on Docker Hub as well as a preliminary website domain:
 
 [Docker Container on Docker Hub](https://hub.docker.com/r/npadmana015/unirecs-test)
 
@@ -31,8 +30,6 @@ Here's a sample view of recommendations:
 ![1682530354389](image/README/1682530354389.png)
 
 As for the progress of this project, we still need to refine our recommendations to be expanded to more colleges and universities. In addition, we are working on improving the connection between the user responses and the strength of the recommendations. We are open to having improved datasets to make better recommendations as well as having updates for new USNews rankings. Please make a pull request to alert us for any changes you want to see.
-
-
 
 # This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
