@@ -52,16 +52,16 @@ export const AcademicTraitsQuiz = () => {
         {
             questionText: 'Do you prefer when things happen exactly as planned?',
             answerOptions: [
-                { answerText: 'Yes. I love predictability.', weight: { 'STEM': { 'weight': 2 }, 'Technology': { 'weight': 2 }, 'Mathematics': { 'weight': 2 } } },
-                { answerText: 'Sometimes. Some unpredictability makes things interesting.', weight: { 'Liberal Arts': { 'weight': 2 }, 'Humanities': { 'weight': 1 }, 'Science': { 'weight': 1 }, 'Arts': { 'weight': 1 }, 'Natural Sciences': { 'weight': 1 } } },
-                { answerText: 'No. I like thinking on my feet', weight: { 'Business': { 'weight': 2 }, 'Marketing': { 'weight': 1 }, 'Hospitality': { 'weight': 1 }, 'Management': { 'weight': 1 } } }
+                { answerText: 'Yes. I love predictability.', weight: { 'STEM': { 'weight': 2, 'Technology': 2, 'Mathematics': 2 } } },
+                { answerText: 'Sometimes. Some unpredictability makes things interesting.', weight: { 'Liberal Arts': { 'weight': 2, 'Humanities': 1, 'Arts': 1, 'Natural Sciences': 1 }, 'STEM': {'Science': 1 } } },
+                { answerText: 'No. I like thinking on my feet', weight: { 'Business': { 'weight': 2, 'Marketing': 1 , 'Hospitality': 1, 'Management': 1 } } }
             ]
         },
         {
             questionText: 'If you could, would you travel for work?',
             answerOptions: [
-                { answerText: 'No. I like staying in one place', weight: { 'STEM': { 'weight': 2 }, 'Technology': { 'weight': 2 }, 'Mathematics': { 'weight': 2 } } },
-                { answerText: 'Yes. I want to explore', weight: { 'Business': { 'weight': 2 }, 'Marketing': { 'weight': 1 }, 'Hospitality': { 'weight': 1 }, 'Management': { 'weight': 1 } } }
+                { answerText: 'No. I like staying in one place', weight: { 'STEM': { 'weight': 2, 'Technology': 2 , 'Mathematics': 2 } } },
+                { answerText: 'Yes. I want to explore', weight: { 'Business': { 'weight': 2, 'Marketing': 1, 'Hospitality': 1, 'Management': 1 } } }
             ]
         },
         {
@@ -76,7 +76,7 @@ export const AcademicTraitsQuiz = () => {
             questionText: 'Would you consider yourself a patient person?',
             answerOptions: [
                 { answerText: 'Yes', weight: { 'STEM': { 'weight': 2 }, 'Business': { 'weight': 1 }, 'Liberal Arts': { 'weight': 1 } } },
-                { answerText: 'No', weight: { 'Liberal Arts': { 'weight': 2 }, 'Business': { 'weight': 1 }, 'STEM': { 'weight': 1 } } },
+                { answerText: 'No', weight: { 'Liberal Arts': { 'weight': 2 }, 'Business': { 'weight': 2 }, 'STEM': { 'weight': 1 } } },
             ]
         },
         {
@@ -94,15 +94,15 @@ export const AcademicTraitsQuiz = () => {
                 {
                     answerText: 'Yes. I like taking the lead in organizing projects.',
                     weight: {
-                        'Business': { 'weight': 2 }, 'Management': { 'weight': 4 }, 'Engineering': { 'weight': 3 },
-                        'Marketing': { 'weight': 2 }, 'Arts': { 'weight': 2 }, 'Science': { 'weight': 1 },
-                        'Mathematics': { 'weight': 1 }, 'Hospitality': { 'weight': 1 }
+                        'Business': { 'weight': 2, 'Management': 4, 'Marketing' : 2, 'Hospitality': 1 },
+                        'STEM' : {'Engineering': 3, 'Science': 1, 'Mathematics': 1 },
+                        'Liberal Arts': {'Arts': 2 } 
                     }
                 },
 
                 {
                     answerText: 'No. I prefer working once I know what\'s expected.',
-                    weight: { 'STEM': { 'weight': 1 }, 'Technology': { 'weight': 2 }, 'Mathematics': { 'weight': 1 }, 'Humanities': { 'weight': 1 } }
+                    weight: { 'STEM': { 'weight': 1, 'Technology': 2, 'Mathematics': 1 }, 'Liberal Arts': {'Humanities': 1 } }
                 },
             ]
         },

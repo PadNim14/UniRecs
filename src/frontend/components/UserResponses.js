@@ -50,7 +50,7 @@ const UserResponses = () => {
                     {userResponses.map((response, index) => (
                         <div key={index}>
                             <div>
-                                <h4>Response {index + 1}</h4>
+                                <h4>Quiz Response {index + 1}</h4>
                                 {response.responseID.map((res2, idx) => (
                                     <div key={idx}>
                                         <center>
