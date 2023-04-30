@@ -2,7 +2,7 @@ import os
 import csv
 from numpy import dot
 from parse_dict import parse_user_dict_sort
-from generate_college_rankings import write_csv_rank_files, urls, mix_fields
+from generate_college_ranking import write_csv_rank_files, urls, mix_fields
 
 fields = [field for field in {**urls, **mix_fields}]
 

@@ -45,7 +45,7 @@ const UserResponses = () => {
             {userResponses.length > 0 ? (
                 <div>
                     <h3>Your Responses</h3>
-                    <button onClick={goToProfilePage}>Go back to profile</button>
+                    <button className="btn btn-primary" onClick={goToProfilePage}>Go back to profile</button>
 
                     {userResponses.map((response, index) => (
                         <div key={index}>
@@ -62,14 +62,15 @@ const UserResponses = () => {
                             </div>
                         </div>
                     ))}
+                    <button className="btn btn-primary" onClick={goToProfilePage}>Go back to profile</button>
 
                 </div>
             ) : (
                 <div>
                     <center>
                         <h2>You have not taken any quizzes yet!</h2>
-                        <button onClick={goToProfilePage}>Go back to profile</button>
-                        <button onClick={handleQuiz}>Take Quiz</button>
+                        <button className="btn btn-primary" onClick={goToProfilePage}>Go back to profile</button>
+                        <button className="btn btn-primary" onClick={handleQuiz}>Take Quiz</button>
 
                     </center>
                 </div>

@@ -54,17 +54,31 @@ export const InitialQuiz = () => {
         {
             questionText: 'Does it matter how strong your college is in fields you aren\'t studying?',
             answerOptions: [
-                { answerText: 'Yes, all other fields should be highly ranked.', weight: 2},
-                { answerText: 'No. As long as I\'m learning, it doesn\'t really matter.', weight: 0},
-                
+                {
+                    answerText: 'Yes, all other fields should be highly ranked.',
+                    weight: {
+                        'STEM': { 'weight': 1, 'Engineering': 3, 'Computer Science': 3, 'Science': 3, 'Mathematics': 3 },
+                        'Business': { 'weight': 1, 'Finance': 3, 'Marketing': 3, 'Hospitality': 3, 'Management': 3 },
+                        'Liberal Arts': { 'weight': 1, 'Humanities': 3, 'Social Sciences': 3, 'Arts': 3, 'Natural Sciences': 3 }
+                    }
+                },
+                { answerText: 'No. As long as I\'m learning, it doesn\'t really matter.', weight: { 'STEM': { 'weight': 0 } } },
+
 
             ]
         },
         {
             questionText: 'Does college ranking matter to you?',
             answerOptions: [
-                { answerText: 'Yes. Ranking matters a lot to me.', weight: 1.25},
-                { answerText: 'No. As long as I\'m learning, it doesn\'t really matter.', weight: 0}
+                {
+                    answerText: 'Yes. Ranking matters a lot to me.',
+                    weight: {
+                        'STEM': { 'weight': 1, 'Engineering': 3, 'Computer Science': 3, 'Science': 3, 'Mathematics': 3 },
+                        'Business': { 'weight': 1, 'Finance': 3, 'Marketing': 3, 'Hospitality': 3, 'Management': 3 },
+                        'Liberal Arts': { 'weight': 1, 'Humanities': 3, 'Social Sciences': 3, 'Arts': 3, 'Natural Sciences': 3 }
+                    }
+                },
+                { answerText: 'No. As long as I\'m learning, it doesn\'t really matter.', weight: { 'STEM': { 'weight': 0 } } }
             ]
         }
 
