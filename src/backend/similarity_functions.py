@@ -21,7 +21,7 @@ def __create_college_dict(num_colleges):
                 int(row['rankingSortRank']), {field:row[field] for field in \
                 field_names[2:]}) for row in reader]
     return field_dict
-colleges = __create_college_dict(10)
+colleges = __create_college_dict(250)
 
 class Similarities:
     def __init__(self, data):
