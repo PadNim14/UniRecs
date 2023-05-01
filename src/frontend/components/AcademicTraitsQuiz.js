@@ -38,8 +38,12 @@ export const AcademicTraitsQuiz = () => {
             questionText: 'Which do you prefer?',
             answerOptions: [
                 { answerText: 'Learning new material', weight: { 'STEM': { 'weight': 2, 'Engineering': 1, 'Technology': 1, 'Science': 1, 'Mathematics': 1 } } },
-                { answerText: 'Learning old material', weight: { 'Business': { 'weight': 2, 'Engineering': 1, 'Technology': 1, 'Science': 1, 'Mathematics': 1 } } }
-            ]
+                { answerText: 'Learning old material', weight: {
+                    'STEM': { 'weight': 2, 'Engineering': 1, 'Technology': 1, 'Science': 1, 'Mathematics': 1 },
+                    'Business': { 'weight': 2, 'Finance': 1, 'Marketing': 1, 'Hospitality': 1, 'Management': 1 },
+                    'Liberal Arts': { 'weight': 2, 'Humanities': 1, 'Social Sciences': 1, 'Arts': 1, 'Natural Sciences': 1 }
+                }
+            }]
         },
 
         {
