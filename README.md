@@ -27,9 +27,10 @@ After logging into your account, you are presented with four buttons:
 
 Here's a sample view of recommendations:
 
-![1682530354389](image/README/1682530354389.png)
+![1682948349356](image/README/1682948349356.png)
 
-As for the progress of this project, we still need to refine our recommendations to be expanded to more colleges and universities. In addition, we are working on improving the connection between the user responses and the strength of the recommendations. We are open to having improved datasets to make better recommendations as well as having updates for new USNews rankings. Please make a pull request to alert us for any changes you want to see.
+When you click on each card, this is what you will see:
+![1682948391569](image/README/1682948391569.png)
 
 # This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import college from '../assets/college.jpg'
+import placeholder from '../assets/college.jpg'
 function SearchResults(event, url) {
   // console.log(url);
   event.preventDefault();
@@ -18,6 +18,7 @@ function CollegePopup({ college, onClose }) {
   );
 }
 
+// 
 function CollegeCards({ colleges }) {
   console.log(colleges[0]['data']['primaryPhotoCardSmall']);
   const [selectedCollege, setSelectedCollege] = useState(null);
@@ -34,11 +35,19 @@ function CollegeCards({ colleges }) {
     <div className="college-cards">
       {colleges.map((college) => (
         <div key={college['name']} className="college-card">
-          <img
-            src={college['data']['primaryPhotoCardSmall']}
-            alt={college['name']}
-            onClick={() => handleClick(college)}
-          />
+          {college['data']['primaryPhotoCardSmall'] ? (
+            <img
+              src={college['data']['primaryPhotoCardSmall']}
+              alt={college['name']}
+              onClick={() => handleClick(college)}
+            />
+          ) : (
+            <img
+              src="https://via.placeholder.com/150"
+              alt={college['name']}
+              onClick={() => handleClick(college)}
+            />
+          )}
           <span className="college-name">{college['name']}</span>
         </div>
       ))}
@@ -48,18 +57,29 @@ function CollegeCards({ colleges }) {
             <button className="close-btn" onClick={handleClose}>
               Close
             </button>
-            <img
-              src={selectedCollege['data']['primaryPhotoCardSmall']}
-              alt={selectedCollege['name']}
-            />
-            <h2>{selectedCollege['name']}</h2>
-            <p>{selectedCollege['data']['description']}</p>
+            {selectedCollege['data']['primaryPhotoCardSmall'] ? (
+              <img
+                src={selectedCollege['data']['primaryPhotoCardSmall']}
+                alt={selectedCollege['name']}
+              />
+            ) : (
+              <img
+                src={placeholder}
+                alt={selectedCollege['name']}
+              />
+            )}
+            <h3>{selectedCollege['name']}</h3>
+            <h3>{selectedCollege['data']['description']}</h3>
+            <p>Alias: {selectedCollege['data']['aliasNames'] ? selectedCollege['data']['aliasNames'] : "None"}</p>
+            <p>Location: {selectedCollege['data']['location']}</p>
+            {/* <p>isPublic: {selectedCollege['data']['isPublic']}</p> */}
           </div>
         </div>
       )}
     </div>
   );
 }
+
 
 
 // function CollegeCards({ colleges }) {
