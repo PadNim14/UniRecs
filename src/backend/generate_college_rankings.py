@@ -28,7 +28,7 @@ mix_fields = {
 }
 field_names = [
     'displayName', 'rankingSortRank', # DO NOT CHANGE THE FIRST TWO ENTRIES
-    'primaryPhotoCardSmall', 'location', 'isPublic', 'aliasNames'
+    'primaryPhotoCardSmall', 'primaryPhotoThumb', 'location', 'isPublic', 'aliasNames'
 ]
 
 def __make_dir(dir_name):
