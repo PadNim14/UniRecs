@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { database } from '../../backend/firebase';
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs, setDoc } from "firebase/firestore";
 import QuizResults from './InitialQuizResults';
 import { getAuth } from 'firebase/auth';
 
@@ -22,7 +22,7 @@ export const InitialQuiz = () => {
             questionText: 'In the STEM field, what interests you most?',
             answerOptions: [
                 { answerText: 'Engineering', weight: { 'STEM': { 'weight': 1, 'Engineering': 2 } } },
-                { answerText: 'Computer Science', weight: { 'STEM': { 'weight': 1, 'Computer Science': 2 } } },
+                { answerText: 'Technology', weight: { 'STEM': { 'weight': 1, 'Technology': 2 } } },
                 { answerText: 'Science', weight: { 'STEM': { 'weight': 1, 'Science': 2 } } },
                 { answerText: 'Mathematics', weight: { 'STEM': { 'weight': 1, 'Mathematics': 2 } } },
                 { answerText: 'STEM isn\'t my thing.', weight: { 'STEM': { 'weight': 0 } } }
@@ -57,7 +57,7 @@ export const InitialQuiz = () => {
                 {
                     answerText: 'Yes, all other fields should be highly ranked.',
                     weight: {
-                        'STEM': { 'weight': 1, 'Engineering': 3, 'Computer Science': 3, 'Science': 3, 'Mathematics': 3 },
+                        'STEM': { 'weight': 1, 'Engineering': 3, 'Technology': 3, 'Science': 3, 'Mathematics': 3 },
                         'Business': { 'weight': 1, 'Finance': 3, 'Marketing': 3, 'Hospitality': 3, 'Management': 3 },
                         'Liberal Arts': { 'weight': 1, 'Humanities': 3, 'Social Sciences': 3, 'Arts': 3, 'Natural Sciences': 3 }
                     }
@@ -73,7 +73,7 @@ export const InitialQuiz = () => {
                 {
                     answerText: 'Yes. Ranking matters a lot to me.',
                     weight: {
-                        'STEM': { 'Engineering': 3, 'Computer Science': 3, 'Science': 3, 'Mathematics': 3 },
+                        'STEM': { 'Engineering': 3, 'Technology': 3, 'Science': 3, 'Mathematics': 3 },
                         'Business': { 'Finance': 3, 'Marketing': 3, 'Hospitality': 3, 'Management': 3 },
                         'Liberal Arts': { 'Humanities': 3, 'Social Sciences': 3, 'Arts': 3, 'Natural Sciences': 3 }
                     }
@@ -88,33 +88,74 @@ export const InitialQuiz = () => {
     const currentUser = getAuth().currentUser;
     const userId = currentUser.uid;
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        if (userResponses.length === questions.length) {
-            // console.log(addDoc(collection(database, "quizResponses")))
-            addDoc(collection(database, "quizResponses"), {
+    //     if (userResponses.length === questions.length) {
+    //         // console.log(addDoc(collection(database, "quizResponses")))
+    //         addDoc(collection(database, "quizResponses"), {
 
-                responses: userResponses
-            })
-                .then(() => {
-                    console.log("Responses added to the database!");
-                })
+    //             responses: userResponses
+    //         })
+    //             .then(() => {
+    //                 console.log("Responses added to the database!");
+    //             })
 
-                .catch((error) => {
-                    console.error("Error adding responses to the database: ", error);
-                });
-            addDoc(collection(database, "users"), {
-                responseID: userResponses,
-                userId: userId
-            })
-                .then(() => {
-                    console.log("List of responses added with userId!");
-                })
-                .catch((error) => {
-                    console.error("Error adding the list of responses to the database: ", error);
-                });
+    //             .catch((error) => {
+    //                 console.error("Error adding responses to the database: ", error);
+    //             });
+    //         addDoc(collection(database, "users"), {
+    //             responseID: userResponses,
+    //             userId: userId,
+    //             quiz: 1
+    //         })
+    //             .then(() => {
+    //                 console.log("List of responses added with userId!");
+    //             })
+    //             .catch((error) => {
+    //                 console.error("Error adding the list of responses to the database: ", error);
+    //             });
+    //     }
+    // })
+
+    useEffect(() => {    
+        if (userResponses.length !== questions.length) {
+            return;
         }
-    })
+
+        const userCollection = collection(database, 'quizResponses');
+        var isUpdated = false;
+        getDocs(userCollection).then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                if(doc.data().userId === userId && doc.data().quiz == 1) {
+                    setDoc(doc.ref, { responseID: userResponses }, { merge: true }).then(() => {
+                        console.log("User doc updated with new quiz info.");
+                    })
+                    .catch((error) => {
+                        console.error("Error updating document: ", error);
+                    });
+                    isUpdated = true;
+                    return;
+                }
+            });
+      
+            // console.log(isUpdated);
+            if (isUpdated) {
+                return;
+            }
+
+            addDoc(collection(database, "quizResponses"), {
+                responseID: userResponses,
+                userId: userId,
+                quiz: 1
+            })
+            .then(() => {
+                console.log("Quiz 1 added!");
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        });
+    });
 
     const handleAnswerOptionClick = (answerText, weight) => {
         const response = {
