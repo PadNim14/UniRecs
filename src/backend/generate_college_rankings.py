@@ -26,12 +26,16 @@ mix_fields = {
     "Hospitality" : ["Finance", "Arts"],
     "Management" : ["Finance", "Overall"]
 }
+field_names = [
+    'displayName', 'rankingSortRank', # DO NOT CHANGE THE FIRST TWO ENTRIES
+    'primaryPhotoCardSmall', 'location', 'isPublic', 'aliasNames'
+]
 
 def __make_dir(dir_name):
     if not os.path.exists(dir_name):
         os.makedirs(dir_name)
     return os.getcwd()
-def __write_base_csv_files(field_names, curr_dir, folder_name, num_colleges):
+def __write_base_csv_files(curr_dir, folder_name, num_colleges):
     os.chdir(f"{curr_dir}/{folder_name}")
     for subject, url in urls.items():
         with open(f"{subject}.csv", 'w', newline='') as file:
@@ -49,15 +53,17 @@ def __combine_files(mixers):
             reader = csv.DictReader(file)
             for row in reader:
                 if row['displayName'] in data_dict:
-                    data_dict[row['displayName']].append(int(row['rankingSortRank']))
+                    data_dict[row['displayName']]['rank'].append(int(row['rankingSortRank']))
                 else:
-                    data_dict[row['displayName']] = [int(row['rankingSortRank'])]
+                    data_dict[row['displayName']] = {'rank': [int(row['rankingSortRank'])]}
+                    for field in field_names[2:]:
+                        data_dict[row['displayName']][field] = row[field]
     return data_dict
-def __write_mix_csv_files(field_names, curr_dir, folder_name):
+def __write_mix_csv_files(curr_dir, folder_name):
     os.chdir(f"{curr_dir}/{folder_name}")
     for subject, mixers in mix_fields.items():
         data_dict = __combine_files(mixers)
-        colleges = sorted([(name,sum(ranks)//len(ranks)) \
+        colleges = sorted([(name,sum(ranks['rank'])//len(ranks['rank'])) \
             for name,ranks in data_dict.items()], key=lambda tup:tup[1])
 
         with open(f"{subject}.csv", 'w', newline='') as file:
@@ -70,11 +76,10 @@ def __write_mix_csv_files(field_names, curr_dir, folder_name):
                 })
     os.chdir(curr_dir)
 def write_csv_rank_files(num_colleges, folder_name):
-    field_names = ['displayName', 'rankingSortRank']
     curr_dir = __make_dir(folder_name)
 
-    __write_base_csv_files(field_names, curr_dir, folder_name, num_colleges)
-    __write_mix_csv_files(field_names, curr_dir, folder_name)
+    __write_base_csv_files(curr_dir, folder_name, num_colleges)
+    __write_mix_csv_files(curr_dir, folder_name)
 
 if __name__ == "__main__":
     write_csv_rank_files(1, folder_name='college_data')
