@@ -1,23 +1,51 @@
-displayName,rankingSortRank
-University of Pennsylvania,1
-American Academy of Art,1
-Massachusetts Institute of Technology,2
-"University of California, Berkeley",2
-Art Academy of Cincinnati,2
-Boston Architectural College,3
-University of Michigan--Ann Arbor,4
-California College of the Arts,4
-Carnegie Mellon University,5
-New York University,5
-Cleveland Institute of Art,5
-Cleveland Institute of Music,6
-University of Texas at Austin,7
-College for Creative Studies,7
-Cornell University,8
-Indiana University--Bloomington,8
-University of North Carolina at Chapel Hill,8
-University of Southern California,8
-University of Virginia,8
-Columbia College Hollywood,8
-Columbus College of Art and Design,9
-Cornish College of the Arts,10
+displayName,rankingSortRank,primaryPhotoCardSmall,primaryPhotoThumb,location,isPublic,aliasNames
+University of Pennsylvania,1,,,,,
+American Academy of Art,1,,,,,
+Massachusetts Institute of Technology,2,,,,,
+"University of California, Berkeley",2,,,,,
+Art Academy of Cincinnati,2,,,,,
+Boston Architectural College,3,,,,,
+University of Michigan--Ann Arbor,4,,,,,
+California College of the Arts,4,,,,,
+Carnegie Mellon University,5,,,,,
+New York University,5,,,,,
+Cleveland Institute of Art,5,,,,,
+Cleveland Institute of Music,6,,,,,
+University of Texas at Austin,7,,,,,
+College for Creative Studies,7,,,,,
+Cornell University,8,,,,,
+Indiana University--Bloomington,8,,,,,
+University of North Carolina at Chapel Hill,8,,,,,
+University of Southern California,8,,,,,
+University of Virginia,8,,,,,
+Columbia College Hollywood,8,,,,,
+Columbus College of Art and Design,9,,,,,
+Cornish College of the Arts,10,,,,,
+Culinary Institute of America,11,,,,,
+Curtis Institute of Music,12,,,,,
+Design Institute of San Diego,13,,,,,
+Escuela de Artes Plasticas de Puerto Rico,14,,,,,
+Five Towns College,15,,,,,
+Juilliard School,16,,,,,
+Kansas City Art Institute,17,,,,,
+Laguna College of Art and Design,18,,,,,
+Maine College of Art,19,,,,,
+Manhattan School of Music,20,,,,,
+Maryland Institute College of Art,21,,,,,
+Massachusetts College of Art and Design,22,,,,,
+Milwaukee Institute of Art and Design,23,,,,,
+Minneapolis College of Art and Design,24,,,,,
+Moore College of Art & Design,25,,,,,
+New England Conservatory of Music,26,,,,,
+New York School of Interior Design,27,,,,,
+Otis College of Art and Design,28,,,,,
+Pacific Northwest College of Art,29,,,,,
+Pennsylvania Academy of the Fine Arts,30,,,,,
+Pennsylvania College of Art & Design,31,,,,,
+Pratt Institute,32,,,,,
+Puerto Rico Conservatory of Music,33,,,,,
+Ringling College of Art and Design,34,,,,,
+San Francisco Conservatory of Music,35,,,,,
+School of the Art Institute of Chicago,36,,,,,
+University of North Carolina School of the Arts,37,,,,,
+University of the Arts,38,,,,,

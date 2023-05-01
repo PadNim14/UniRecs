@@ -16,12 +16,13 @@ function Results() {
             console.log(e.message);
         }
     }
+    console.log(data);
 
-    useEffect(() => {
-        fetch('/recs')
-            .then(response => response.json())
-            .then(data => setColleges(data));
-    }, []);
+    // useEffect(() => {
+    //     fetch('/recs')
+    //         .then(response => response.json())
+    //         .then(data => setColleges(data));
+    // }, []);
 
     // const colleges = [
     //     'Massachusetts Institute of Technology (MIT)',
@@ -32,6 +33,7 @@ function Results() {
     //     'California Institute of Technology (Caltech)',
     //     'University of Michigan--Ann Arbor',
     //   ];
+    console.log(data);
     return (
         <div className='App'>
             <center>
@@ -43,7 +45,7 @@ function Results() {
                         <li key={index}>{college}</li>
                         ))}
                     </div> */}
-                <CollegeCards colleges={colleges} />
+                <CollegeCards colleges={data} />
                 <button className='btn btn-primary' onClick={goToProfilePage}>Go back to profile</button>
                 <br />
             </center>

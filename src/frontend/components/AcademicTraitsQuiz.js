@@ -263,7 +263,8 @@ export const AcademicTraitsQuiz = () => {
     const goToResults = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('/recs');
+            const response = await axios.post('/recs', { userId: userId, timeout: 5000 }, { headers: { 'Content-Type': 'application/json' } });
+
             console.log(e);
             navigate('/results', { state: { data: response.data } });
         }

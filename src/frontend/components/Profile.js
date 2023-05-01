@@ -30,10 +30,16 @@ function Profile() {
     };
 
     const handleRecs = async (e) => {
+        console.log(user.uid);
         try {
-            const response = await axios.post('/recs', { timeout: 5000});
-            console.log(response.data);
-            navigate('/results', { state: { data: response.data } })
+            const response = await axios.post('/recs', { userId: user.uid, timeout: 5000 }, { headers: { 'Content-Type': 'application/json' } });
+            // .then(response => {
+            //     console.log(response.data);
+            // })
+            // .catch(error => {
+            //     console.log(error);
+            // });
+            navigate('/results', { state: { data: response.data } });
         }
         catch (e) {
             console.log(e.message);
