@@ -12,5 +12,4 @@ if __name__ == "__main__":
     user_id = "Ilp1CPwB7nNN0MsAparujOmXYeE3"
     recs = make_rec(user_id)
     for idx, rec in enumerate(recs[:25]):
-        print(f"{idx+1})\t{rec}")
-
+        print(f"{idx+1})\t{rec['name']}")
