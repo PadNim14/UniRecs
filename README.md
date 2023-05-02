@@ -8,7 +8,7 @@ Welcome to UniRecs, a website that recommends colleges and universities in the U
 
 [Docker Container on Docker Hub](https://hub.docker.com/r/npadmana015/unirecs-test)
 
-[DigitalOcean Website](https://unirecs-4kktt.ondigitalocean.app/)
+[DigitalOcean Website](https://unirecs-app-uncxt.ondigitalocean.app/)
 
 ![1682530270684](image/README/1682530270684.png)
 
