@@ -28,7 +28,7 @@ mix_fields = {
 }
 field_names = [
     'displayName', 'rankingSortRank', # DO NOT CHANGE THE FIRST TWO ENTRIES
-    'primaryPhotoCardSmall', 'primaryPhotoThumb', 'location', 'isPublic', 'aliasNames'
+    'primaryPhotoThumb', 'location', 'aliasNames'
 ]
 
 def __make_dir(dir_name):
@@ -63,17 +63,18 @@ def __write_mix_csv_files(curr_dir, folder_name):
     os.chdir(f"{curr_dir}/{folder_name}")
     for subject, mixers in mix_fields.items():
         data_dict = __combine_files(mixers)
-        colleges = sorted([(name,sum(ranks['rank'])//len(ranks['rank'])) \
-            for name,ranks in data_dict.items()], key=lambda tup:tup[1])
+        for college in data_dict.values():
+            college['rankingSortRank'] = sum(college['rank'])//len(college['rank'])
+            del college['rank']
+        colleges = sorted([college for college in data_dict.items()], \
+            key=lambda arr:arr[1]['rankingSortRank'])
 
         with open(f"{subject}.csv", 'w', newline='') as file:
             writer = csv.DictWriter(file, fieldnames=field_names)
             writer.writeheader()
             for college in colleges:
-                writer.writerow({
-                    'rankingSortRank':college[1],
-                    'displayName':college[0]
-                })
+                college[1]['displayName'] = college[0]
+                writer.writerow(college[1])
     os.chdir(curr_dir)
 def write_csv_rank_files(num_colleges, folder_name):
     curr_dir = __make_dir(folder_name)

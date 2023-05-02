@@ -15,7 +15,8 @@ COPY . .
 
 # Install Python packages
 RUN python3 -m pip install pip==21.3.1 && \
-    python3 -m pip install Flask pandas scikit-learn
+    python3 -m pip install Flask pandas numpy \
+    requests firebase-admin
 
 # Install npm packages
 RUN npm install

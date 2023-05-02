@@ -87,36 +87,6 @@ export const InitialQuiz = () => {
     const [userResponses, setUserResponses] = useState([]);
     const currentUser = getAuth().currentUser;
     const userId = currentUser.uid;
-
-    // useEffect(() => {
-
-    //     if (userResponses.length === questions.length) {
-    //         // console.log(addDoc(collection(database, "quizResponses")))
-    //         addDoc(collection(database, "quizResponses"), {
-
-    //             responses: userResponses
-    //         })
-    //             .then(() => {
-    //                 console.log("Responses added to the database!");
-    //             })
-
-    //             .catch((error) => {
-    //                 console.error("Error adding responses to the database: ", error);
-    //             });
-    //         addDoc(collection(database, "users"), {
-    //             responseID: userResponses,
-    //             userId: userId,
-    //             quiz: 1
-    //         })
-    //             .then(() => {
-    //                 console.log("List of responses added with userId!");
-    //             })
-    //             .catch((error) => {
-    //                 console.error("Error adding the list of responses to the database: ", error);
-    //             });
-    //     }
-    // })
-
     useEffect(() => {    
         if (userResponses.length !== questions.length) {
             return;
@@ -137,8 +107,18 @@ export const InitialQuiz = () => {
                     return;
                 }
             });
-      
-            // console.log(isUpdated);
+
+            const collegeCollection = collection(database, 'collegeList');
+            getDocs(collegeCollection).then((querySnapshot) => {
+                querySnapshot.forEach((file) => {
+                    if (file.data().userId === userId) {
+                        console.log("New update");
+                        file.data().isUpdated = false;
+                        return;
+                    }
+                });
+            });
+
             if (isUpdated) {
                 return;
             }
@@ -156,6 +136,46 @@ export const InitialQuiz = () => {
             });
         });
     });
+
+    //     useEffect(() => {
+    //     axios.get('/recs')
+    //         .then(response => {
+    //             let isUpdated = false;
+    //             const data = response.data;
+    //             const userCollection = collection(database, 'collegeList');
+    //             getDocs(userCollection).then((querySnapshot) => {
+    //                 querySnapshot.forEach((doc) => {
+    //                     if (doc.data().userId === userId) {
+    //                         setDoc(doc.ref, { colleges: data }, { merge: true }).then(() => {
+    //                             console.log("User doc updated with new college info.");
+    //                         })
+    //                         .catch((error) => {
+    //                             console.error("Error updating document: ", error);
+    //                         });
+    //                         isUpdated = true;
+    //                         return;
+    //                     }
+    //                 });
+
+    //                 if (isUpdated) {
+    //                     console.log("Updated");
+    //                     return;
+    //                 }
+
+    //                 console.log("New file");
+    //                 addDoc(collection(database, "collegeList"), {
+    //                     userId: userId,
+    //                     colleges: data
+    //                 });
+    //             })
+    //             .catch(error => {
+    //                 console.log(error);
+    //             });
+    //         }
+    //     );
+
+
+    // });
 
     const handleAnswerOptionClick = (answerText, weight) => {
         const response = {

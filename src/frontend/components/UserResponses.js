@@ -10,7 +10,7 @@ const UserResponses = () => {
     const { user, auth } = UserAuth();
     useEffect(() => {
         const fetchUserResponses = async () => {
-            const q = query(collection(database, "users"), where("userId", "==", user.uid));
+            const q = query(collection(database, "quizResponses"), where("userId", "==", user.uid));
             const querySnapshot = await getDocs(q);
             const userResponsesData = querySnapshot.docs.map((doc) => doc.data());
             setUserResponses(userResponsesData);
@@ -39,9 +39,10 @@ const UserResponses = () => {
         }
     }
 
+    console.log(userResponses);
     return (
         <div className="App">
-
+        
             {userResponses.length > 0 ? (
                 <div>
                     <h3>Your Responses</h3>

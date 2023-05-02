@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { UserAuth } from '../../context/AuthContext';
 import CollegeCards from './CollegeCards';
+
 function Results() {
-    const [colleges, setColleges] = useState([]);
     const navigate = useNavigate();
     const location = useLocation();
     const { data } = location.state;
-    // const dataSet = new Set(data.split(/, (?![^(]*\))/))
+
     const goToProfilePage = async (e) => {
         try {
             console.log(e);
@@ -16,13 +17,7 @@ function Results() {
             console.log(e.message);
         }
     }
-    console.log(data);
 
-    // useEffect(() => {
-    //     fetch('/recs')
-    //         .then(response => response.json())
-    //         .then(data => setColleges(data));
-    // }, []);
     return (
         <div className='App'>
             <center>

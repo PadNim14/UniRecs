@@ -1,51 +1,51 @@
-displayName,rankingSortRank,primaryPhotoCardSmall,primaryPhotoThumb,location,isPublic,aliasNames
-University of Pennsylvania,1,,,,,
-American Academy of Art,1,,,,,
-Massachusetts Institute of Technology,2,,,,,
-"University of California, Berkeley",2,,,,,
-Art Academy of Cincinnati,2,,,,,
-Boston Architectural College,3,,,,,
-University of Michigan--Ann Arbor,4,,,,,
-California College of the Arts,4,,,,,
-Carnegie Mellon University,5,,,,,
-New York University,5,,,,,
-Cleveland Institute of Art,5,,,,,
-Cleveland Institute of Music,6,,,,,
-University of Texas at Austin,7,,,,,
-College for Creative Studies,7,,,,,
-Cornell University,8,,,,,
-Indiana University--Bloomington,8,,,,,
-University of North Carolina at Chapel Hill,8,,,,,
-University of Southern California,8,,,,,
-University of Virginia,8,,,,,
-Columbia College Hollywood,8,,,,,
-Columbus College of Art and Design,9,,,,,
-Cornish College of the Arts,10,,,,,
-Culinary Institute of America,11,,,,,
-Curtis Institute of Music,12,,,,,
-Design Institute of San Diego,13,,,,,
-Escuela de Artes Plasticas de Puerto Rico,14,,,,,
-Five Towns College,15,,,,,
-Juilliard School,16,,,,,
-Kansas City Art Institute,17,,,,,
-Laguna College of Art and Design,18,,,,,
-Maine College of Art,19,,,,,
-Manhattan School of Music,20,,,,,
-Maryland Institute College of Art,21,,,,,
-Massachusetts College of Art and Design,22,,,,,
-Milwaukee Institute of Art and Design,23,,,,,
-Minneapolis College of Art and Design,24,,,,,
-Moore College of Art & Design,25,,,,,
-New England Conservatory of Music,26,,,,,
-New York School of Interior Design,27,,,,,
-Otis College of Art and Design,28,,,,,
-Pacific Northwest College of Art,29,,,,,
-Pennsylvania Academy of the Fine Arts,30,,,,,
-Pennsylvania College of Art & Design,31,,,,,
-Pratt Institute,32,,,,,
-Puerto Rico Conservatory of Music,33,,,,,
-Ringling College of Art and Design,34,,,,,
-San Francisco Conservatory of Music,35,,,,,
-School of the Art Institute of Chicago,36,,,,,
-University of North Carolina School of the Arts,37,,,,,
-University of the Arts,38,,,,,
+displayName,rankingSortRank,primaryPhotoThumb,location,aliasNames
+University of Pennsylvania,1,https://www.usnews.com/dims4/USNEWS/69b6621/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F7c%2F2357eaa9bde06e03bfb80c920320a0%2Fcollege-photo_27654.jpg,"Philadelphia, PA",UPenn
+American Academy of Art,1,,"Chicago, IL",
+Massachusetts Institute of Technology,2,https://www.usnews.com/dims4/USNEWS/5e3efc1/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2Fa8%2Fc5193da7eb9dcbd26e794c018ac87a%2Fcollege-photo_6935.jpg,"Cambridge, MA",MIT
+"University of California, Berkeley",2,https://www.usnews.com/dims4/USNEWS/1a794a4/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2Fde%2F0d94d5e7c41f245912bce74f83a846%2Fcollege-photo_2013.jpg,"Berkeley, CA",UC Berkeley Cal Berkeley University of California Berkeley
+Art Academy of Cincinnati,2,https://www.usnews.com/dims4/USNEWS/2b36ca6/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2Fbc%2F1751c91383e7c2e057b9ed4b3e0037%2Fcollege-photo_26869.jpg,"Cincinnati, OH",
+Boston Architectural College,3,https://www.usnews.com/dims4/USNEWS/cb6c256/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F97%2F0e47e8df501c18fff93d97c00d432d%2Fcollege-photo_24197.jpg,"Boston, MA",
+University of Michigan--Ann Arbor,4,https://www.usnews.com/dims4/USNEWS/614b6c7/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F18%2F9a8520bedd7484acede46418483a33%2FUMMS_THSL_at_night.jpg,"Ann Arbor, MI",UM University of Michigan Ann Arbor
+California College of the Arts,4,https://www.usnews.com/dims4/USNEWS/907ff53/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F89%2F282c25a12127f4927358f3d1c44211%2Fcollege-photo_22303.jpg,"San Francisco, CA",CCA
+Carnegie Mellon University,5,https://www.usnews.com/dims4/USNEWS/8bcc9b7/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2Fc7%2F5cc4f10c79126ea2a09bd2c7bebf75%2Fcollege-photo_33151.jpg,"Pittsburgh, PA",CMU
+New York University,5,https://www.usnews.com/dims4/USNEWS/97b4e62/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F9d%2Fd819230374ef6531890bb7eee1dac0%2FNYU_WSP_Header.jpg,"New York, NY",NYU
+Cleveland Institute of Art,5,,"Cleveland, OH",
+Cleveland Institute of Music,6,,"Cleveland, OH",
+University of Texas at Austin,7,https://www.usnews.com/dims4/USNEWS/8b436d8/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fwww.usnews.com%2Fcmsmedia%2Fbe%2F5e%2F6008045e418a9a9be022f2eab7ee%2Fut-austin-hero-1920x640.jpg,"Austin, TX",UT Austin University of Texas Austin
+College for Creative Studies,7,,"Detroit, MI",
+Cornell University,8,https://www.usnews.com/dims4/USNEWS/79fff8e/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F59%2F0dd395ffda36a08c792a2b32303c7b%2Fcollege-photo_73.jpg,"Ithaca, NY",
+Indiana University--Bloomington,8,https://www.usnews.com/dims4/USNEWS/085e96d/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F71%2Fd5039cf1209140b9105a4696b0b155%2F0001.jpg,"Bloomington, IN",IU Bloomington Indiana University Bloomington
+University of North Carolina at Chapel Hill,8,https://www.usnews.com/dims4/USNEWS/d2ce5fd/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2Fc8%2Fc1f072147e28aabbb84a9f0d87d2e3%2Foldwell.JPG,"Chapel Hill, NC",UNC University of North Carolina Chapel Hill
+University of Southern California,8,https://www.usnews.com/dims4/USNEWS/9913178/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2Fd9%2Feab50c4d7d394ddf2eafc05777c45f%2Fcollege-photo_11618.jpg,"Los Angeles, CA",USC Southern Cal
+University of Virginia,8,https://www.usnews.com/dims4/USNEWS/392fdee/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2Fcd%2Fc4797df7ab3ec18213c260c5a64502%2Fcollege-photo_2352.jpg,"Charlottesville, VA",UVA
+Columbia College Hollywood,8,,"Tarzana, CA",
+Columbus College of Art and Design,9,,"Columbus, OH",
+Cornish College of the Arts,10,https://www.usnews.com/dims4/USNEWS/6d6d056/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2Ff6%2F06f42d28150b3a88b9aea560374c84%2Fcollege-photo_20914.jpg,"Seattle, WA",
+Culinary Institute of America,11,,"Hyde Park, NY",CIA
+Curtis Institute of Music,12,https://www.usnews.com/dims4/USNEWS/e0a53cc/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F07%2Fdc1ee0a224337714cfc39f956d22d6%2Fcollege-photo_17586.jpg,"Philadelphia, PA",
+Design Institute of San Diego,13,,"San Diego, CA",
+Escuela de Artes Plasticas de Puerto Rico,14,,"San Juan, PR",
+Five Towns College,15,,"Dix Hills, NY",
+Juilliard School,16,https://www.usnews.com/dims4/USNEWS/869efd8/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F31%2F376b0fab1621726bcca1dc79aaa7f0%2Fcollege-photo_16842.jpg,"New York, NY",
+Kansas City Art Institute,17,https://www.usnews.com/dims4/USNEWS/1647445/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2Fff%2Fac9a0b3d5874452a8277953e76c21f%2Fcollege-photo_435.jpg,"Kansas City, MO",
+Laguna College of Art and Design,18,https://www.usnews.com/dims4/USNEWS/cff084e/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F67%2Fd68c3a77cc75f334087ea5fab875c3%2Fcollege-photo_33823.jpg,"Laguna Beach, CA",Laguna College of Art & Design
+Maine College of Art,19,https://www.usnews.com/dims4/USNEWS/0ef0fc3/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F86%2Fb8b86b1522794f681343528be38ba8%2Fcollege-photo_1706.jpg,"Portland, ME",
+Manhattan School of Music,20,,"New York, NY",
+Maryland Institute College of Art,21,,"Baltimore, MD",
+Massachusetts College of Art and Design,22,https://www.usnews.com/dims4/USNEWS/aa21929/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F55%2Fde53fed8351f4c10f0a0ad98c930ff%2Fcollege-photo_1021.jpg,"Boston, MA",Mass Art
+Milwaukee Institute of Art and Design,23,https://www.usnews.com/dims4/USNEWS/bb2c9a7/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2Fb8%2F9189cc6a8af5c5efe4b932d2286059%2Fcollege-photo_26349.jpg,"Milwaukee, WI",MIAD
+Minneapolis College of Art and Design,24,https://www.usnews.com/dims4/USNEWS/8390bf9/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2Fef%2F5c2e4abf389519d6d27bed073e1315%2Fcollege-photo_9558.jpg,"Minneapolis, MN",
+Moore College of Art & Design,25,https://www.usnews.com/dims4/USNEWS/790c891/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F16%2F32f1b63db5bcbcd85bcdc933451d60%2Fcollege-photo_21033.jpg,"Philadelphia, PA",
+New England Conservatory of Music,26,,"Boston, MA",
+New York School of Interior Design,27,,"New York, NY",
+Otis College of Art and Design,28,,"Los Angeles, CA",
+Pacific Northwest College of Art,29,,"Portland, OR",
+Pennsylvania Academy of the Fine Arts,30,,"Philadelphia, PA",
+Pennsylvania College of Art & Design,31,,"Lancaster, PA",
+Pratt Institute,32,https://www.usnews.com/dims4/USNEWS/eefd20e/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F5c%2Fd8b5e8f38ff6cfd2fc11a8fa30b250%2Fcollege-photo_13684.jpg,"Brooklyn, NY",
+Puerto Rico Conservatory of Music,33,,"San Juan, PR",
+Ringling College of Art and Design,34,,"Sarasota, FL",
+San Francisco Conservatory of Music,35,https://www.usnews.com/dims4/USNEWS/5127740/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F3f%2Fb4c3ebcb8ad1cf935a09f2e4d1437c%2Fcollege-photo_31723.jpg,"San Francisco, CA",
+School of the Art Institute of Chicago,36,https://www.usnews.com/dims4/USNEWS/d9edfde/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2Fb4%2Ffb1ce79a718868fa3e10f8518a3076%2Fcollege-photo_18089.jpg,"Chicago, IL",SAIC
+University of North Carolina School of the Arts,37,https://www.usnews.com/dims4/USNEWS/be762b8/17177859217/thumbnail/170x170/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F3c%2F4e854f5a5b97072f38b466f5776ce4%2Fcollege-photo_25973.jpg,"Winston-Salem, NC",
+University of the Arts,38,,"Philadelphia, PA",UArts

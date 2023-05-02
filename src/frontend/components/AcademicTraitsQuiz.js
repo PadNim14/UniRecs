@@ -145,8 +145,17 @@ export const AcademicTraitsQuiz = () => {
                     return;
                 }
             });
+
+            const collegeCollection = collection(database, 'collegeList');
+            getDocs(collegeCollection).then((querySnapshot) => {
+                querySnapshot.forEach((file) => {
+                    if (file.data().userId === userId) {
+                        file.data().isUpdated = false;
+                        return;
+                    }
+                });
+            });
       
-            // console.log(isUpdated);
             if (isUpdated) {
                 return;
             }
@@ -164,75 +173,6 @@ export const AcademicTraitsQuiz = () => {
             });
         });
     });
-
-    // useEffect(() => {  
-    //     if (userResponses.length !== questions.length) {
-    //         return;
-    //     }
-
-    //     const userCollection = collection(database, 'quizResponses');
-    //     var isUpdated = true;
-    //     getDocs(userCollection).then((querySnapshot) => {
-    //         if (querySnapshot) {
-    //             console.log(querySnapshot);
-    //         }
-    //         querySnapshot.forEach((doc) => {
-    //             if(doc.data().userId === userId && doc.data().quiz == 2) {
-                    
-    //                 setDoc(doc.ref, { responseID: userResponses }, { merge: true }).then(() => {
-    //                     console.log("User doc updated with new quiz info.");
-    //                 })
-    //                 .catch((error) => {
-    //                     console.error("Error updating document: ", error);
-    //                 });
-    //                 return;
-    //             }
-    //         }); 
-    //     });
-        
-    //     if (isUpdated) {
-    //         return;
-    //     }
-
-    //     addDoc(collection(database, "quizResponses"), {
-    //         responseID: userResponses,
-    //         userId: userId,
-    //         quiz: 2
-    //     })
-    //     .then(() => {
-    //         console.log("Quiz 2 added!");
-    //     })
-    //     .catch((error) => {
-    //         console.error(error);
-    //     });
-    // });
-
-    //         // console.log(addDoc(collection(database, "quizResponses")))
-    //         addDoc(collection(database, "quizResponses"), {
-
-    //             responses: userResponses
-    //         })
-    //             .then(() => {
-    //                 console.log("Responses added to the database!");
-    //             })
-
-    //             .catch((error) => {
-    //                 console.error("Error adding responses to the database: ", error);
-    //             });
-
-    //         addDoc(collection(database, "users"), {
-    //             responseID: userResponses,
-    //             userId: userId,
-    //             quiz: 2
-    //         })
-    //             .then(() => {
-    //                 console.log("List of responses added with userId!");
-    //             })
-    //             .catch((error) => {
-    //                 console.error("Error adding the list of responses to the database: ", error);
-    //             });
-    //     }
-    // })
 
     const handleAnswerOptionClick = (answerText, weight) => {
         const response = {
@@ -263,9 +203,7 @@ export const AcademicTraitsQuiz = () => {
     const goToResults = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('/recs', { userId: userId, timeout: 5000 }, { headers: { 'Content-Type': 'application/json' } });
-
-            console.log(e);
+            const response = await axios.post('/recs', { userId: userId, timeout: 1000 }, { headers: { 'Content-Type': 'application/json' } });
             navigate('/results', { state: { data: response.data } });
         }
         catch {
@@ -284,12 +222,6 @@ export const AcademicTraitsQuiz = () => {
                         <br />
                         <button className='btn btn-success' onClick={goToProfilePage}>Go back to profile</button>
                         <button className='btn btn-success' onClick={goToResults}>View Your Recommendations</button>
-
-                        {/* <div>
-                            {responses.map((response) => (
-                                <div key={response.id}> {response.text} </div>
-                            ))}
-                        </div> */}
                     </div>
                 ) : (
                     <>

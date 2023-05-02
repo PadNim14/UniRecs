@@ -15,7 +15,7 @@ def __create_college_dict(num_colleges):
 
     field_dict = {}
     for field in fields:
-        with open(f"{folder_name}/{field}.csv", "r", newline='') as file:
+        with open(f"{folder_name}/{field}.csv", "r", newline='', encoding='latin-1') as file:
             reader = csv.DictReader(file)
             field_dict[field] = [(row['displayName'], \
                 int(row['rankingSortRank']), {field:row[field] for field in \

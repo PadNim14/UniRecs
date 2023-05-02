@@ -7,9 +7,12 @@ def show_recommendations():
     response = request.json
     if response is not None:
         recs = backend.make_rec(response['userId'])
-        return jsonify(recs[:25])
+        for num, college in enumerate(recs[:10]):
+            print(f"{num+1})\t{college['name']}, {college['data']['aliasNames']}")
+        return jsonify(recs[:10])
+    
     print("Backend unable to get user ID")
-    return None
+    return {'name': "No results found"}
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
