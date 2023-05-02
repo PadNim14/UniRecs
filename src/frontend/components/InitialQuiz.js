@@ -134,6 +134,18 @@ export const InitialQuiz = () => {
             .catch((error) => {
                 console.error(error);
             });
+
+            addDoc(collection(database, "collegeList"), {
+                isUpdated: false,
+                userId: userId,
+                data: {}
+            })
+            .then(() => {
+                console.log("College list added!");
+            })
+            .catch((error) => {
+                console.error(error);
+            });
         });
     });
 

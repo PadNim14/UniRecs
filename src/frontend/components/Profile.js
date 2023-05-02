@@ -32,13 +32,17 @@ function Profile() {
     const handleRecs = async (e) => {
         console.log(user.uid);
 
-        var isUpdated = false;
+        var isUpdated = true;
         const userCollection = collection(database, 'collegeList');
         await getDocs(userCollection).then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                if (doc.data().userId === user.uid && doc.data().isUpdated) {
-                    navigate('/results', { state: { data: doc.data().colleges } });
-                    isUpdated = true;
+                if (doc.data().userId === user.uid) {
+                    if (doc.data().isUpdated) {
+                        navigate('/results', { state: { data: doc.data().colleges } });
+                    }
+                    else {
+                        isUpdated = false;
+                    }
                     return;
                 }
             });
